@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Marker from './marker'
+import { Marker, MarkerView } from './marker'
 
 interface Props {
   progressEl: HTMLProgressElement
@@ -10,7 +10,7 @@ interface Props {
   muted: boolean
   currentTime: number
   duration: number
-  markers: object[]
+  markers: Marker[]
   onPlayClick: () => void
   onPauseClick: () => void
   onProgressClick: () => void
@@ -98,7 +98,7 @@ function Controls(props: Props) {
           {markers &&
             markers.map((marker, index) => {
               return (
-                <Marker
+                <MarkerView
                   key={index}
                   marker={marker}
                   duration={duration}

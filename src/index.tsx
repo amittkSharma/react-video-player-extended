@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Controls from './controls'
+import { Marker } from './marker'
 import './styles.css'
 
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
   isPlaying: boolean
   volume: number
   loop?: boolean
-  markers?: object[]
+  markers?: Marker[]
   timeStart?: number
   onPlay?: () => void
   onPause?: () => void
@@ -108,14 +109,15 @@ function VideoPlayer(props: Props) {
 
   const handleProgress = (e: Event) => {
     const { currentTarget } = e
-    const currentTargetTime = currentTarget['currentTime']
+    // tslint:disable-next-line: no-shadowed-variable
+    const currentTime = currentTarget['currentTime']
     const duration = currentTarget['duration']
     if (duration) {
-      setCurrentTime(currentTargetTime)
-      const percentage = (100 / duration) * currentTargetTime
+      setCurrentTime(currentTime)
+      const percentage = (100 / duration) * currentTime
       progressEl.current.value = percentage
       progressEl.current.innerHTML = percentage + '% played'
-      if (currentTargetTime === duration) {
+      if (currentTime === duration) {
         onPause()
       }
     }
