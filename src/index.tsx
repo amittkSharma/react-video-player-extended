@@ -18,7 +18,7 @@ interface Props {
   onVolume?: (volume: number) => void
   onProgress?: (event: Event) => void
   onDuration?: (duration: number) => void
-  onMarkerClick?: (marker: object) => void
+  onMarkerClick?: (marker: Marker) => void
 }
 
 const DEFAULT_VOLUME: number = 0.7
@@ -124,14 +124,14 @@ function VideoPlayer(props: Props) {
     onProgress(e)
   }
 
-  const handleProgressClick = (e: Event) => {
+  const handleProgressClick = (e: React.MouseEvent<HTMLProgressElement, MouseEvent>) => {
     const x =
       e['clientX'] - progressEl.current.getBoundingClientRect().left + document.body.scrollLeft
     const percentage = (x * progressEl.current.max) / progressEl.current.offsetWidth
     playerEl.current.currentTime = (percentage / 100) * playerEl.current.duration
   }
 
-  const handleVolumeClick = (e: Event) => {
+  const handleVolumeClick = (e: React.MouseEvent<HTMLProgressElement, MouseEvent>) => {
     const y =
       volumeEl.current.offsetWidth -
       (e['clientY'] - volumeEl.current.getBoundingClientRect().top + document.body.scrollTop)
@@ -180,7 +180,7 @@ function VideoPlayer(props: Props) {
     setIsFullScreen(!isFullScreen)
   }
 
-  const handleMarkerClick = (marker: object) => {
+  const handleMarkerClick = (marker: Marker) => {
     playerEl.current.currentTime = marker['time']
     onMarkerClick(marker)
   }

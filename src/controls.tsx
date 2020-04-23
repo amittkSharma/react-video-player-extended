@@ -13,11 +13,11 @@ interface Props {
   markers: Marker[]
   onPlayClick: () => void
   onPauseClick: () => void
-  onProgressClick: () => void
-  onVolumeClick: () => void
+  onProgressClick: (event: React.MouseEvent<HTMLProgressElement, MouseEvent>) => void
+  onVolumeClick: (event: React.MouseEvent<HTMLProgressElement, MouseEvent>) => void
   onMuteClick: () => void
   onFullScreenClick: () => void
-  onMarkerClick: () => void
+  onMarkerClick: (marker: Marker) => void
 }
 
 function Controls(props: Props) {
