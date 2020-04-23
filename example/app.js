@@ -3,7 +3,7 @@ import VideoPlayer from "../src/index";
 import "./styles.css";
 
 function App() {
-  const [url] = useState("https://media.w3.org/2010/05/sintel/trailer_hd.mp4");
+  const [url] = useState("https://pixabay.com/videos/galaxy-universe-space-stars-535/");
   const [controls, setControls] = useState([
     "play",
     "time",
