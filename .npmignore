@@ -1,0 +1,7 @@
+example
+node_modules
+webpack.config.js
+.eslintrc
+.gitignore
+.prettierrc
+jest.config.js

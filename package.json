@@ -1,0 +1,62 @@
+{
+  "name": "react-video-player-extended",
+  "version": "1.1.4",
+  "description": "React HTML5 video player with markers",
+  "author": "Arthur Mironov (arthur.mironoff@gmail.com)",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/art-mironoff/react-video-markers.git"
+  },
+  "keywords": [
+    "react",
+    "video",
+    "marker",
+    "markers",
+    "html5"
+  ],
+  "bugs": {
+    "url": "https://github.com/art-mironoff/react-video-markers/issues"
+  },
+  "homepage": "https://github.com/art-mironoff/react-video-markers#readme",
+  "peerDependencies": {
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1",
+    "prop-types": ">=15.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.19",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
+    "jest-transform-css": "^2.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-hot-loader": "^4.12.15",
+    "react-test-renderer": "^16.10.2",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build-example": "webpack",
+    "build-prod": "webpack --config webpack.prod.config.js",
+    "test": "jest"
+  }
+}

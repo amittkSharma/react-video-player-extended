@@ -1,0 +1,201 @@
+.react-video-wrap {
+  padding-bottom: 36px;
+  position: relative;
+}
+
+.react-video-wrap video {
+  background-color: #000000;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.react-video-controls {
+  background-color: #e7e7e7;
+  display: flex;
+  height: 36px;
+  padding: 0 7px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.react-video-controls button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 0;
+  cursor: pointer;
+  margin: 10px 7px;
+  padding: 0;
+  outline: none;
+  height: 16px;
+  width: 16px;
+  text-indent: -9999px;
+}
+
+.react-video-controls .play {
+  background-image: url('./images/play-black.svg');
+}
+
+.react-video-controls .pause {
+  background-image: url('./images/pause-black.svg');
+  background-size: 15px;
+}
+
+.react-video-controls .volume {
+  background-image: url('./images/volume-black.svg');
+  background-position-x: 0;
+  width: 17px;
+}
+
+.react-video-controls .no-volume {
+  background-image: url('./images/no-volume-black.svg');
+  background-position-x: 0;
+  width: 17px;
+}
+
+.react-video-controls .full-screen {
+  background-image: url('./images/full-screen-black.svg');
+  width: 17px;
+}
+
+.react-video-controls .time {
+  color: #969696;
+  font-size: 10px;
+  line-height: 37px;
+  margin: 0 7px;
+}
+
+.react-video-controls progress {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.react-video-controls .progress-wrap {
+  flex-grow: 1;
+  margin: 5px 7px 0;
+  position: relative;
+}
+
+.react-video-controls .progress-wrap progress {
+  height: 8px;
+  width: 100%;
+}
+
+.react-video-controls .progress-wrap progress::-webkit-progress-value {
+  background: #28c0f0;
+}
+
+.react-video-controls .progress-wrap progress::-webkit-progress-bar {
+  background: #ffffff;
+}
+
+.react-video-controls .progress-wrap .react-video-marker {
+  background-color: #666666;
+  cursor: pointer;
+  display: block;
+  height: 8px;
+  width: 4px;
+  position: absolute;
+  top: 9px;
+  left: 50%;
+}
+
+.react-video-controls .volume-wrap {
+  position: relative;
+}
+
+.react-video-controls .volume-wrap:hover progress {
+  display: block;
+}
+
+.react-video-controls .volume-wrap progress {
+  border-radius: 2px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: none;
+  height: 12px;
+  overflow: hidden;
+  position: absolute;
+  top: -52px;
+  left: -31px;
+  transform: rotate(-90deg);
+  width: 100px;
+}
+
+.react-video-controls .volume-wrap progress::-webkit-progress-value {
+  background: #ffffff;
+}
+
+.react-video-controls .volume-wrap progress::-webkit-progress-bar {
+  background: #9d9d9d;
+}
+
+.react-video-full-screen .react-video-wrap {
+  background-color: #000000;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.react-video-full-screen .react-video-player {
+  height: calc(100vh - 36px);
+  max-width: 100%;
+}
+
+.react-video-full-screen .react-video-close {
+  background: url('./images/close-video.svg') no-repeat transparent;
+  border: 0;
+  cursor: pointer;
+  opacity: 1;
+  outline: none;
+  text-indent: -9999px;
+  height: 23px;
+  width: 23px;
+  position: absolute;
+  top: 36px;
+  right: 77px;
+}
+
+.react-video-full-screen .react-video-controls {
+  background-color: #595959;
+}
+
+.react-video-full-screen .react-video-controls .play {
+  background-image: url('./images/play-white.svg');
+}
+
+.react-video-full-screen .react-video-controls .pause {
+  background-image: url('./images/pause-white.svg');
+}
+
+.react-video-full-screen .react-video-controls .volume {
+  background-image: url('./images/volume-white.svg');
+}
+
+.react-video-full-screen .react-video-controls .no-volume {
+  background-image: url('./images/no-volume-white.svg');
+}
+
+.react-video-full-screen .react-video-controls .full-screen {
+  background-image: url('./images/full-screen-white.svg');
+}
+
+.react-video-full-screen .react-video-controls .time {
+  color: #ffffff;
+}
+
+.react-video-controls .next-frame {
+  background-image: url('./images/next-frame.svg');
+}
+
+.react-video-controls .last-frame {
+  background-image: url('./images/last-frame.svg');
+}
