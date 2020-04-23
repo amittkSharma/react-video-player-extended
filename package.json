@@ -22,9 +22,11 @@
   "homepage": "https://github.com/amittkSharma/react-video-player-extended#readme",
   "peerDependencies": {
     "react": ">=16.13.1",
-    "react-dom": ">=16.13.1"
+    "react-dom": ">=16.13.1",
+    "prop-types": "15.7.2"
   },
   "devDependencies": {
+    "prop-types": "15.7.2",
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.6.3",
