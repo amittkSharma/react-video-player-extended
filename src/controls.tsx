@@ -67,30 +67,30 @@ function Controls(props: Props) {
 
   return (
     <div className="react-video-controls">
-      {controls.includes('play') ? (
+      {controls.includes('play') && (
         <button
           className={isPlaying ? 'pause' : 'play'}
           onClick={isPlaying ? onPauseClick : onPlayClick}
         >
           {isPlaying ? 'Pause' : 'Play'}
         </button>
-      ) : null}
-      {controls.includes('last-frame') ? (
+      )}
+      {controls.includes('last-frame') && (
         <button className="last-frame" onClick={onFullScreenClick}>
           Next Frame
         </button>
-      ) : null}
-      {controls.includes('next-frame') ? (
+      )}
+      {controls.includes('next-frame') && (
         <button className="next-frame" onClick={onFullScreenClick}>
           Next Frame
         </button>
-      ) : null}
-      {controls.includes('time') ? (
+      )}
+      {controls.includes('time') && (
         <div className="time">
           {currentTimeCode}/{durationTimeCode}
         </div>
-      ) : null}
-      {controls.includes('progress') ? (
+      )}
+      {controls.includes('progress') && (
         <div className="progress-wrap">
           <progress ref={progressEl} max="100" onClick={onProgressClick}>
             0% played
@@ -107,8 +107,8 @@ function Controls(props: Props) {
               )
             })}
         </div>
-      ) : null}
-      {controls.includes('volume') ? (
+      )}
+      {controls.includes('volume') && (
         <div className="volume-wrap">
           <progress ref={volumeEl} max="100" value={volume * 100} onClick={onVolumeClick}>
             {volume * 100}% volume
@@ -117,12 +117,12 @@ function Controls(props: Props) {
             Volume
           </button>
         </div>
-      ) : null}
-      {controls.includes('full-screen') ? (
+      )}
+      {controls.includes('full-screen') && (
         <button className="full-screen" onClick={onFullScreenClick}>
           FullScreen
         </button>
-      ) : null}
+      )}
     </div>
   )
 }
