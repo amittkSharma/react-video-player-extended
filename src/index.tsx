@@ -43,12 +43,18 @@ function VideoPlayer(props: Props) {
     loop = false,
     markers = [],
     timeStart = 0,
-    onPlay,
-    onPause,
-    onVolume,
-    onProgress,
-    onDuration,
-    onMarkerClick,
+    // tslint:disable-next-line: no-empty
+    onPlay = () => {},
+    // tslint:disable-next-line: no-empty
+    onPause = () => {},
+    // tslint:disable-next-line: no-empty
+    onVolume = () => {},
+    // tslint:disable-next-line: no-empty
+    onProgress = () => {},
+    // tslint:disable-next-line: no-empty
+    onDuration = () => {},
+    // tslint:disable-next-line: no-empty
+    onMarkerClick = () => {},
   } = props
 
   useEffect(() => {
