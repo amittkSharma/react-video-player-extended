@@ -1,6 +1,6 @@
 {
   "name": "react-video-player-extended",
-  "version": "1.1.4",
+  "version": "1.0.0",
   "description": "React HTML5 video player with markers",
   "author": "Amitt K Sharma",
   "license": "MIT",
@@ -48,6 +48,10 @@
     "react-hot-loader": "^4.12.15",
     "react-test-renderer": "^16.10.2",
     "style-loader": "^1.0.0",
+    "tslint": "6.1.1",
+    "tslint-checker": "4.1.2",
+    "tslint-react": "4.2.0",
+    "typescript": "3.7.5",
     "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
@@ -57,6 +61,7 @@
     "start": "node server.js",
     "build-example": "webpack",
     "build-prod": "webpack --config webpack.prod.config.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "tslint -p ."
   }
 }

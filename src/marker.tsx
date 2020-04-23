@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-interface IProps {
+interface Props {
   marker: {
     id: number
     time: number
@@ -11,7 +11,7 @@ interface IProps {
   onMarkerClick: (marker: object) => void
 }
 
-function Marker(props: IProps) {
+function Marker(props: Props) {
   const { marker, duration, onMarkerClick } = props
   const { time, color, title } = marker
   const id = String(marker.id)

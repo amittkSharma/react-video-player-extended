@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Marker from './marker'
 
-interface IProps {
+interface Props {
   progressEl: HTMLProgressElement
   volumeEl: HTMLProgressElement
   controls: string[]
@@ -20,7 +20,7 @@ interface IProps {
   onMarkerClick: () => void
 }
 
-function Controls(props) {
+function Controls(props: Props) {
   const {
     progressEl,
     volumeEl,

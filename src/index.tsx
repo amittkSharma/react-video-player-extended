@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Controls from './Controls'
+import Controls from './controls'
 import './styles.css'
 
-interface IProps {
+interface Props {
   url: string
   controls?: string[]
   height?: string
@@ -22,7 +22,7 @@ interface IProps {
 
 const DEFAULT_VOLUME: number = 0.7
 
-function VideoPlayer(props: IProps) {
+function VideoPlayer(props: Props) {
   const playerEl = useRef<HTMLVideoElement>(null)
   const progressEl = useRef<HTMLProgressElement>(null)
   const volumeEl = useRef<HTMLProgressElement>(null)
@@ -42,12 +42,12 @@ function VideoPlayer(props: IProps) {
     loop = false,
     markers = [],
     timeStart = 0,
-    onPlay = () => {},
-    onPause = () => {},
-    onVolume = () => {},
-    onProgress = () => {},
-    onDuration = () => {},
-    onMarkerClick = () => {},
+    onPlay,
+    onPause,
+    onVolume,
+    onProgress,
+    onDuration,
+    onMarkerClick,
   } = props
 
   useEffect(() => {
@@ -108,14 +108,14 @@ function VideoPlayer(props: IProps) {
 
   const handleProgress = (e: Event) => {
     const { currentTarget } = e
-    const currentTime = currentTarget['currentTime']
+    const currentTargetTime = currentTarget['currentTime']
     const duration = currentTarget['duration']
     if (duration) {
-      setCurrentTime(currentTime)
-      const percentage = (100 / duration) * currentTime
+      setCurrentTime(currentTargetTime)
+      const percentage = (100 / duration) * currentTargetTime
       progressEl.current.value = percentage
       progressEl.current.innerHTML = percentage + '% played'
-      if (currentTime === duration) {
+      if (currentTargetTime === duration) {
         onPause()
       }
     }
