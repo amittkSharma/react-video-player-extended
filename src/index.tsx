@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Controls from './controls'
+import { Controls } from './controls'
 import { Marker } from './marker'
 import './styles.css'
 
@@ -187,7 +187,7 @@ function VideoPlayer(props: Props) {
 
   return (
     <div className="react-video-wrap" style={{ height, width }}>
-      <p>Extended Markers</p>
+      <p>Extended Markers: With frames</p>
       <video ref={playerEl} className="react-video-player" loop={loop} onClick={handlePlayerClick}>
         <source src={url} type="video/mp4" />
       </video>
@@ -198,8 +198,8 @@ function VideoPlayer(props: Props) {
       ) : null}
       {controls.length ? (
         <Controls
-          progressEl={progressEl}
-          volumeEl={volumeEl}
+          progressEl={progressEl as any}
+          volumeEl={volumeEl as any}
           controls={controls}
           isPlaying={isPlaying}
           volume={volume}

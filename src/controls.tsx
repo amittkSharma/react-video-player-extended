@@ -20,27 +20,8 @@ interface Props {
   onMarkerClick: (marker: Marker) => void
 }
 
-function Controls(props: Props) {
-  const {
-    progressEl,
-    volumeEl,
-    controls,
-    isPlaying,
-    volume,
-    muted,
-    currentTime,
-    duration,
-    markers,
-    onPlayClick,
-    onPauseClick,
-    onProgressClick,
-    onVolumeClick,
-    onMuteClick,
-    onFullScreenClick,
-    onMarkerClick,
-  } = props
-
-  const getTimeCode = (secs: number): string => {
+export class Controls extends React.Component<Props, never> {
+  getTimeCode = (secs: number): string => {
     let secondsNumber = secs ? parseInt(String(secs), 10) : 0
     let hours = Math.floor(secondsNumber / 3600)
     let minutes = Math.floor((secondsNumber - hours * 3600) / 60)
@@ -62,69 +43,89 @@ function Controls(props: Props) {
     return `${hoursStr !== '00' ? hoursStr + ':' : ''}${minutesStr}:${secondsStr}`
   }
 
-  const durationTimeCode = getTimeCode(Math.ceil(duration))
-  const currentTimeCode = currentTime !== duration ? getTimeCode(currentTime) : durationTimeCode
+  render() {
+    const {
+      progressEl,
+      volumeEl,
+      controls,
+      isPlaying,
+      volume,
+      muted,
+      currentTime,
+      duration,
+      markers,
+      onPlayClick,
+      onPauseClick,
+      onProgressClick,
+      onVolumeClick,
+      onMuteClick,
+      onFullScreenClick,
+      onMarkerClick,
+    } = this.props
 
-  return (
-    <div className="react-video-controls">
-      {controls.includes('play') && (
-        <button
-          className={isPlaying ? 'pause' : 'play'}
-          onClick={isPlaying ? onPauseClick : onPlayClick}
-        >
-          {isPlaying ? 'Pause' : 'Play'}
-        </button>
-      )}
-      {controls.includes('last-frame') && (
-        <button className="last-frame" onClick={onFullScreenClick}>
-          Next Frame
-        </button>
-      )}
-      {controls.includes('next-frame') && (
-        <button className="next-frame" onClick={onFullScreenClick}>
-          Next Frame
-        </button>
-      )}
-      {controls.includes('time') && (
-        <div className="time">
-          {currentTimeCode}/{durationTimeCode}
-        </div>
-      )}
-      {controls.includes('progress') && (
-        <div className="progress-wrap">
-          <progress ref={progressEl} max="100" onClick={onProgressClick}>
-            0% played
-          </progress>
-          {markers &&
-            markers.map((marker, index) => {
-              return (
-                <MarkerView
-                  key={index}
-                  marker={marker}
-                  duration={duration}
-                  onMarkerClick={onMarkerClick}
-                />
-              )
-            })}
-        </div>
-      )}
-      {controls.includes('volume') && (
-        <div className="volume-wrap">
-          <progress ref={volumeEl} max="100" value={volume * 100} onClick={onVolumeClick}>
-            {volume * 100}% volume
-          </progress>
-          <button className={muted ? 'no-volume' : 'volume'} onClick={onMuteClick}>
-            Volume
+    const durationTimeCode = this.getTimeCode(Math.ceil(duration))
+    const currentTimeCode =
+      currentTime !== duration ? this.getTimeCode(currentTime) : durationTimeCode
+
+    return (
+      <div className="react-video-controls">
+        {controls.includes('play') && (
+          <button
+            className={isPlaying ? 'pause' : 'play'}
+            onClick={isPlaying ? onPauseClick : onPlayClick}
+          >
+            {isPlaying ? 'Pause' : 'Play'}
           </button>
-        </div>
-      )}
-      {controls.includes('full-screen') && (
-        <button className="full-screen" onClick={onFullScreenClick}>
-          FullScreen
-        </button>
-      )}
-    </div>
-  )
+        )}
+        {controls.includes('last-frame') && (
+          <button className="last-frame" onClick={onFullScreenClick}>
+            Next Frame
+          </button>
+        )}
+        {controls.includes('next-frame') && (
+          <button className="next-frame" onClick={onFullScreenClick}>
+            Next Frame
+          </button>
+        )}
+        {controls.includes('time') && (
+          <div className="time">
+            {currentTimeCode}/{durationTimeCode}
+          </div>
+        )}
+        {controls.includes('progress') && (
+          <div className="progress-wrap">
+            <progress ref={progressEl} max="100" onClick={onProgressClick}>
+              0% played
+            </progress>
+            {markers &&
+              markers.map((marker, index) => {
+                return (
+                  <MarkerView
+                    key={index}
+                    marker={marker}
+                    duration={duration}
+                    onMarkerClick={onMarkerClick}
+                  />
+                )
+              })}
+          </div>
+        )}
+        {controls.includes('volume') && (
+          <div className="volume-wrap">
+            <progress ref={volumeEl} max="100" value={volume * 100} onClick={onVolumeClick}>
+              {volume * 100}% volume
+            </progress>
+            <button className={muted ? 'no-volume' : 'volume'} onClick={onMuteClick}>
+              Volume
+            </button>
+          </div>
+        )}
+        {controls.includes('full-screen') && (
+          <button className="full-screen" onClick={onFullScreenClick}>
+            FullScreen
+          </button>
+        )}
+      </div>
+    )
+  }
 }
-
-export default Controls

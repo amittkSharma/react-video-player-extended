@@ -22,8 +22,7 @@
   "homepage": "https://github.com/amittkSharma/react-video-player-extended#readme",
   "peerDependencies": {
     "react": ">=16.13.1",
-    "react-dom": ">=16.13.1",
-    "prop-types": ">=15.5.0"
+    "react-dom": ">=16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -42,7 +41,6 @@
     "enzyme-adapter-react-16": "^1.15.1",
     "jest": "^24.9.0",
     "jest-transform-css": "^2.0.0",
-    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.15",
