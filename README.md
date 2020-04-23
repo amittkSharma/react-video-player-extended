@@ -23,19 +23,19 @@ class App extends Component {
     isPlaying: false,
     volume: 0.7
   };
-  
+
   handlePlay = () => {
     this.setState({isPlaying: true});
   };
-  
+
   handlePause = () => {
     this.setState({isPlaying: false});
   };
-  
+
   handleVolume = value => {
     this.setState({volume: value});
   };
-  
+
   render () {
     const {isPlaying, volume} = this.state;
 
@@ -51,7 +51,7 @@ class App extends Component {
 }
 ```
 
-Demo page: [`https://art-mironoff.github.io/react-video-markers/example/`](https://art-mironoff.github.io/react-video-markers/example/)
+Demo page: [`https://amittkSharma.github.io/react-video-player-extended/example/`](https://amittkSharma.github.io/react-video-player-extended/example/)
 
 ### Props
 
@@ -64,12 +64,12 @@ Prop | Description | Default
 `volume` | Set the volume of the player, between `0` and `1` | 0.7
 `loop` | Set to `true` or `false` to loop the media | false
 `markers` | Set array of markers. Example: `[{id: 1, time: 5, color: '#ffc837', title: 'Marker 1'}]` | []
-`timeStart` | Set the second number to start playing video | 0 
-`url` | The url of a video | 
+`timeStart` | Set the second number to start playing video | 0
+`url` | The url of a video |
 
 ### Callback props
 
-Prop | Description 
+Prop | Description
 ---- | -----------
 onPlay | Called when video is started
 onPause | Called when media is paused

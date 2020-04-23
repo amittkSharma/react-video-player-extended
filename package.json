@@ -2,12 +2,12 @@
   "name": "react-video-player-extended",
   "version": "1.1.4",
   "description": "React HTML5 video player with markers",
-  "author": "Arthur Mironov (arthur.mironoff@gmail.com)",
+  "author": "Amitt K Sharma",
   "license": "MIT",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/art-mironoff/react-video-markers.git"
+    "url": "git+https://github.com/amittkSharma/react-video-player-extended.git"
   },
   "keywords": [
     "react",
@@ -17,9 +17,9 @@
     "html5"
   ],
   "bugs": {
-    "url": "https://github.com/art-mironoff/react-video-markers/issues"
+    "url": "https://github.com/amittkSharma/react-video-player-extended/issues"
   },
-  "homepage": "https://github.com/art-mironoff/react-video-markers#readme",
+  "homepage": "https://github.com/amittkSharma/react-video-player-extended#readme",
   "peerDependencies": {
     "react": ">=16.13.1",
     "react-dom": ">=16.13.1",
