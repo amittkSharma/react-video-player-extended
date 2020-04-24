@@ -53,7 +53,7 @@ class App extends Component {
 }
 ```
 
-Demo page: [`https://amittkSharma.github.io/react-video-player-extended/example/`](https://amittkSharma.github.io/react-video-player-extended/example/)
+Demo page: [`https://amittkSharma.github.io/react-video-player-extended/example/index.html`](https://amittkSharma.github.io/react-video-player-extended/example/index.html)
 
 ### Props
 
