@@ -210,7 +210,6 @@ function VideoPlayer(props: Props) {
 
   return (
     <div className="react-video-wrap" style={{ height, width }}>
-      <p>Extended Markers: With frames</p>
       <video ref={playerEl} className="react-video-player" loop={loop} onClick={handlePlayerClick}>
         <source src={url} type="video/mp4" />
       </video>
