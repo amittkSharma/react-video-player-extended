@@ -6,6 +6,10 @@
   React Video Player (with Markers, Next, Last Frame jumps)
 </p>
 
+### Introduction
+
+React-video-player-extended supports both development and general user requirements. In addition to the basic video player functionality, react-video-player-extended provides the functionality for marking and selecting frames, jumping back and forth between frames based on the fps.
+
 ### Usage
 
 ```bash
