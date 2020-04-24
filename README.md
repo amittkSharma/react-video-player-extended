@@ -42,7 +42,7 @@ class App extends Component {
     const {isPlaying, volume} = this.state;
 
     return <VideoPlayer
-      url="https://github.com/amittkSharma/react-video-player-extended/blob/master/video_sample/earth_moon.mp4?raw=true"
+      url="https://media.w3.org/2010/05/bunny/trailer.mp4"
       isPlaying={isPlaying}
       volume={volume}
       onPlay={this.handlePlay}

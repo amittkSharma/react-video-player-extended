@@ -3,13 +3,11 @@ import VideoPlayer from '../src/index'
 import './styles.css'
 
 function App() {
-  const [url] = useState(
-    'https://github.com/amittkSharma/react-video-player-extended/blob/master/video_sample/earth_moon.mp4?raw=true',
-  )
+  const [url] = useState('https://media.w3.org/2010/05/bunny/trailer.mp4')
   const [controls, setControls] = useState(['play', 'time', 'progress', 'volume', 'full-screen'])
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(0.7)
-  const [timeStart] = useState(0)
+  const [timeStart] = useState(10)
   const [fps] = useState(10)
 
   const controlsList = [
