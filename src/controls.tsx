@@ -18,6 +18,8 @@ interface Props {
   onMuteClick: () => void
   onFullScreenClick: () => void
   onMarkerClick: (marker: Marker) => void
+  onNextFrameClick: () => void
+  onLastFrameClick: () => void
 }
 
 export class Controls extends React.Component<Props, never> {
@@ -61,6 +63,8 @@ export class Controls extends React.Component<Props, never> {
       onMuteClick,
       onFullScreenClick,
       onMarkerClick,
+      onNextFrameClick,
+      onLastFrameClick,
     } = this.props
 
     const durationTimeCode = this.getTimeCode(Math.ceil(duration))
@@ -78,12 +82,12 @@ export class Controls extends React.Component<Props, never> {
           </button>
         )}
         {controls.includes('last-frame') && (
-          <button className="last-frame" onClick={onFullScreenClick}>
+          <button className="last-frame" onClick={onLastFrameClick}>
             Next Frame
           </button>
         )}
         {controls.includes('next-frame') && (
-          <button className="next-frame" onClick={onFullScreenClick}>
+          <button className="next-frame" onClick={onNextFrameClick}>
             Next Frame
           </button>
         )}

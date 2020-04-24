@@ -68,6 +68,7 @@ Prop | Description | Default
 `markers` | Set array of markers. Example: `[{id: 1, time: 5, color: '#ffc837', title: 'Marker 1'}]` | []
 `timeStart` | Set the second number to start playing video | 0
 `url` | The url of a video |
+`fps` | Frame per second | 30
 
 ### Callback props
 

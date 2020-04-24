@@ -13,6 +13,7 @@ interface Props {
   loop?: boolean
   markers?: Marker[]
   timeStart?: number
+  fps?: number
   onPlay?: () => void
   onPause?: () => void
   onVolume?: (volume: number) => void
@@ -43,6 +44,7 @@ function VideoPlayer(props: Props) {
     loop = false,
     markers = [],
     timeStart = 0,
+    fps = 30,
     // tslint:disable-next-line: no-empty
     onPlay = () => {},
     // tslint:disable-next-line: no-empty
@@ -191,6 +193,21 @@ function VideoPlayer(props: Props) {
     onMarkerClick(marker)
   }
 
+  const handleNextFrameClick = () => {
+    console.log(`Moving to next frame with fps: ${fps}`)
+    const frameTime = 1 / fps
+    playerEl.current.currentTime = Math.min(
+      playerEl.current.duration,
+      playerEl.current.currentTime + frameTime,
+    )
+  }
+
+  const handleLastFrameClick = () => {
+    console.log(`Moving to last frame with fps: ${fps}`)
+    const frameTime = 1 / fps
+    playerEl.current.currentTime = Math.max(0, playerEl.current.currentTime - frameTime)
+  }
+
   return (
     <div className="react-video-wrap" style={{ height, width }}>
       <p>Extended Markers: With frames</p>
@@ -220,6 +237,8 @@ function VideoPlayer(props: Props) {
           onMuteClick={handleMuteClick}
           onFullScreenClick={handleFullScreenClick}
           onMarkerClick={handleMarkerClick}
+          onNextFrameClick={handleNextFrameClick}
+          onLastFrameClick={handleLastFrameClick}
         />
       ) : null}
     </div>

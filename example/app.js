@@ -10,6 +10,7 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(0.7)
   const [timeStart] = useState(0)
+  const [fps] = useState(10)
 
   const controlsList = [
     {
@@ -110,6 +111,7 @@ function App() {
         onProgress={handleProgress}
         onDuration={handleDuration}
         onMarkerClick={handleMarkerClick}
+        fps={fps}
       />
       <div className="controls">
         <p>
@@ -146,6 +148,7 @@ function App() {
         <p>isPlaying: {isPlaying.toString()}</p>
         <p>volume: {volume}</p>
         <p>timeStart: {timeStart}</p>
+        <p>fps: {fps}</p>
       </div>
     </div>
   )
