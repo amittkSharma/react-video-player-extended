@@ -1,22 +1,24 @@
 <h1 align='center'>
-  React Video Markers
+  React Video Player (Extended)
 </h1>
 
 <p align='center'>
-  React Video player with markers
+  React Video Player (with Markers, Next, Last Frame jumps)
 </p>
 
 ### Usage
 
 ```bash
-npm install react-video-markers --save
+npm install react-video-player-extended --save
 # or
-yarn add react-video-markers
+npm i react-video-player-extended
+# or
+yarn add react-video-player-extended
 ```
 
 ```js
 import React, { Component } from 'react';
-import VideoPlayer from 'react-video-markers';
+import VideoPlayer from 'react-video-player-extended';
 
 class App extends Component {
   state = {
