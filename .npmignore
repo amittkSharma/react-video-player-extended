@@ -5,3 +5,4 @@ webpack.config.js
 .gitignore
 .prettierrc
 jest.config.js
+video_sample
