@@ -7,7 +7,7 @@ function App() {
   const [controls, setControls] = useState(['play', 'time', 'progress', 'volume', 'full-screen'])
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(0.7)
-  const [timeStart] = useState(10)
+  const [timeStart] = useState(5)
   const [fps] = useState(10)
 
   const controlsList = [
