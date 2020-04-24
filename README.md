@@ -40,7 +40,7 @@ class App extends Component {
     const {isPlaying, volume} = this.state;
 
     return <VideoPlayer
-      url="https://download.blender.org/durian/trailer/sintel_trailer-720p.mp4"
+      url="https://github.com/amittkSharma/react-video-player-extended/blob/master/video_sample/earth_moon.mp4?raw=true"
       isPlaying={isPlaying}
       volume={volume}
       onPlay={this.handlePlay}
