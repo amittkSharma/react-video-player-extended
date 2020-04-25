@@ -10,6 +10,7 @@ function App() {
   const [volume, setVolume] = useState(0.7)
   const [timeStart] = useState(5)
   const [fps] = useState(10)
+  const [selectedMarker, setSelectedMarker] = useState(undefined)
 
   const controlsList = [
     {
@@ -74,7 +75,7 @@ function App() {
   }
 
   const handleMarkerClick = (marker) => {
-    alert(`Marker ${marker.id} clicked!`)
+    setSelectedMarker(JSON.stringify(marker, null, 2))
   }
 
   const markers = [
@@ -145,6 +146,8 @@ function App() {
           timeStart: {timeStart}
           <span style={{ height: 3 }} />
           fps: {fps}
+          <span style={{ height: 3 }}></span>
+          selectedMarker: {selectedMarker === undefined ? 'No Marker is Selected' : selectedMarker}
         </p>
       </div>
     </div>
