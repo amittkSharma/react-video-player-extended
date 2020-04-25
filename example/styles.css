@@ -3,8 +3,30 @@
   width: 640px;
 }
 
+.main-header {
+  display: flex;
+  background-color: #324157;
+  margin-bottom: 5px;
+}
+.main-header .app-name {
+  color: white;
+  margin: 0 2em 0 1em;
+  font: 20px sans-serif;
+  line-height: 40px;
+  width: 100%;
+}
+
 .controls {
-  margin-top: 20px;
+  margin-top: 5px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.control-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 button {

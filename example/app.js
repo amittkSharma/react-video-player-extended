@@ -3,6 +3,7 @@ import VideoPlayer from '../src/index'
 import './styles.css'
 
 function App() {
+  const statelist = [url, controls, isPlaying, volume, timeStart, fps]
   const [url] = useState('https://media.w3.org/2010/05/bunny/trailer.mp4')
   const [controls, setControls] = useState(['play', 'time', 'progress', 'volume', 'full-screen'])
   const [isPlaying, setIsPlaying] = useState(false)
@@ -93,6 +94,9 @@ function App() {
 
   return (
     <div className="container">
+      <header className="main-header">
+        <h1 className="app-name">React Video Player (Extended)</h1>
+      </header>
       <VideoPlayer
         url={url}
         controls={controls}
@@ -112,14 +116,8 @@ function App() {
         fps={fps}
       />
       <div className="controls">
-        <p>
+        <p className="control-list">
           Controls:
-          <button onClick={isPlaying ? handlePause : handlePlay}>
-            {isPlaying ? 'Pause' : 'Play'}
-          </button>
-        </p>
-        <p>
-          Show controls:
           {controlsList.map((control) => {
             return (
               <label key={control.id} htmlFor={control.id}>
@@ -134,19 +132,20 @@ function App() {
             )
           })}
         </p>
-      </div>
-      <div>
-        <h3>State:</h3>
-        <p>url: {url}</p>
-        <p>
-          controls: {controls.length ? '["' : ''}
-          {controls.join('", "')}
-          {controls.length ? '"]' : ''}
+
+        <p className="control-list">
+          State:
+          <span style={{ height: 3 }} />
+          controls: {controls.join(', ')}
+          <span style={{ height: 3 }} />
+          isPlaying: {isPlaying.toString()}
+          <span style={{ height: 3 }} />
+          volume: {volume}
+          <span style={{ height: 3 }} />
+          timeStart: {timeStart}
+          <span style={{ height: 3 }} />
+          fps: {fps}
         </p>
-        <p>isPlaying: {isPlaying.toString()}</p>
-        <p>volume: {volume}</p>
-        <p>timeStart: {timeStart}</p>
-        <p>fps: {fps}</p>
       </div>
     </div>
   )
