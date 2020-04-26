@@ -11,6 +11,7 @@ interface Props {
   marker: Marker
   duration: number
   onMarkerClick: (marker: Marker) => void
+  selectedMarker: Marker | undefined
 }
 
 export class MarkerView extends React.Component<Props, never> {
@@ -29,13 +30,21 @@ export class MarkerView extends React.Component<Props, never> {
     const { color, title } = marker
     const id = String(marker.id)
 
+    let selectedColor = color
+    if (this.props.selectedMarker !== undefined) {
+      selectedColor =
+        this.props.selectedMarker !== undefined && this.props.selectedMarker.id === marker.id
+          ? '#7CFC00'
+          : color
+    }
+
     return (
       <i
         id={id}
         className="react-video-marker"
         title={title}
         style={{
-          background: color,
+          background: selectedColor,
           left: this.getPosition(),
         }}
         onClick={() => {
