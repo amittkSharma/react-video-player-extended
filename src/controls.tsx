@@ -79,7 +79,6 @@ export class Controls extends React.Component<Props, State> {
       onVolumeClick,
       onMuteClick,
       onFullScreenClick,
-      onMarkerClick,
       onNextFrameClick,
       onLastFrameClick,
     } = this.props

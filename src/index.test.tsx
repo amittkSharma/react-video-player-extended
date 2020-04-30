@@ -2,6 +2,7 @@ import Enzyme, { mount, ReactWrapper } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import React from 'react'
 import VideoPlayer from './index'
+import { Marker } from './marker'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -11,7 +12,7 @@ describe('VideoPlayer', () => {
   // tslint:disable-next-line: no-empty
   window['HTMLMediaElement'].prototype.pause = () => {}
 
-  const markers: object[] = [
+  const markers: Marker[] = [
     {
       id: 1,
       time: 5,
