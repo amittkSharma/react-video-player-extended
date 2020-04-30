@@ -2,8 +2,8 @@ import * as React from 'react'
 import { Marker, MarkerView } from './marker'
 
 interface Props {
-  progressEl: HTMLProgressElement
-  volumeEl: HTMLProgressElement
+  progressEl: React.MutableRefObject<HTMLProgressElement>
+  volumeEl: React.MutableRefObject<HTMLProgressElement>
   controls: string[]
   isPlaying: boolean
   volume: number
