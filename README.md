@@ -10,7 +10,7 @@
 
 React-video-player-extended supports both development and general user requirements. In addition to the basic video player functionality, react-video-player-extended provides the functionality for marking and selecting frames, jumping back and forth between frames based on the fps.
 
-### Usage
+### Install
 
 ```bash
 npm install react-video-player-extended --save
@@ -19,6 +19,8 @@ npm i react-video-player-extended
 # or
 yarn add react-video-player-extended
 ```
+
+### Example
 
 ```js
 import React, { Component } from 'react';
@@ -82,7 +84,7 @@ Prop | Description | Default
 `url` | The url of a video |
 `fps` | Frame per second | 30
 
-### Callback props
+### Callback Events
 
 Prop | Description
 ---- | -----------
