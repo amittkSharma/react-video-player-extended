@@ -57,7 +57,15 @@ class App extends Component {
 }
 ```
 
-Demo page: [`https://amittkSharma.github.io/react-video-player-extended/example/index.html`](https://amittkSharma.github.io/react-video-player-extended/example/index.html)
+### Demo
+
+[`https://amittkSharma.github.io/react-video-player-extended/example/index.html`](https://amittkSharma.github.io/react-video-player-extended/example/index.html)
+
+### Features
+
+- Package supports basic video player functionality like play/pause, volume control and fullscreen
+- Markers display and selection
+- Jumping back and forth between frames based on FPS (default fps value is 30)
 
 ### Props
 
