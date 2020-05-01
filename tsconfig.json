@@ -20,12 +20,11 @@
     "noUnusedParameters": true,
     "strict": false,
     "suppressImplicitAnyIndexErrors": true,
-    "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
+    "noEmit": false,
+    "declaration": true
   },
   "exclude": [
     "node_modules",
