@@ -3,15 +3,15 @@ const path = require('path')
 const libraryName = pkg.name
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
   entry: {
     index: './src/index.tsx',
   },
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: './dist',
-    filename: 'index.js',
-    sourceMapFilename: 'index.map',
+    // filename: 'index.js',
+    // sourceMapFilename: 'index.map',
     library: libraryName,
     libraryTarget: 'umd',
   },
@@ -19,8 +19,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts|.tsx|.js?$/,
-        loader: 'babel-loader',
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+          },
+        ],
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
       },
       {
         test: /\.css$/i,
