@@ -20,6 +20,7 @@ interface Props {
   onProgress?: (event: Event) => void
   onDuration?: (duration: number) => void
   onMarkerClick?: (marker: Marker) => void
+  selectedMarker: Marker
 }
 
 const DEFAULT_VOLUME: number = 0.7
@@ -57,6 +58,7 @@ function VideoPlayer(props: Props) {
     onDuration = () => {},
     // tslint:disable-next-line: no-empty
     onMarkerClick = () => {},
+    selectedMarker,
   } = props
 
   useEffect(() => {
@@ -238,6 +240,7 @@ function VideoPlayer(props: Props) {
           onMarkerClick={handleMarkerClick}
           onNextFrameClick={handleNextFrameClick}
           onLastFrameClick={handleLastFrameClick}
+          selectedMarker={selectedMarker}
         />
       ) : null}
     </div>

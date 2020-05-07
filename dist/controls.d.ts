@@ -19,12 +19,9 @@ interface Props {
     onMarkerClick: (marker: Marker) => void;
     onNextFrameClick: () => void;
     onLastFrameClick: () => void;
+    selectedMarker: Marker;
 }
-interface State {
-    selectedMarker: Marker | undefined;
-}
-export declare class Controls extends React.Component<Props, State> {
-    constructor(props: Props);
+export declare class Controls extends React.Component<Props, never> {
     getTimeCode: (secs: number) => string;
     handleOnMarkerSelection: (selectedMarker: Marker) => void;
     render(): JSX.Element;

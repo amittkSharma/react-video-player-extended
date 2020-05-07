@@ -75,7 +75,7 @@ function App() {
   }
 
   const handleMarkerClick = (marker) => {
-    setSelectedMarker(JSON.stringify(marker, null, 2))
+    setSelectedMarker(marker)
   }
 
   const markers = [
@@ -115,6 +115,7 @@ function App() {
         onDuration={handleDuration}
         onMarkerClick={handleMarkerClick}
         fps={fps}
+        selectedMarker={selectedMarker}
       />
       <div className="controls">
         <p className="control-list">
@@ -147,7 +148,10 @@ function App() {
           <span style={{ height: 3 }} />
           fps: {fps}
           <span style={{ height: 3 }}></span>
-          selectedMarker: {selectedMarker === undefined ? 'No Marker is Selected' : selectedMarker}
+          selectedMarker:{' '}
+          {selectedMarker === undefined
+            ? 'No Marker is Selected'
+            : JSON.stringify(selectedMarker, null, 2)}
         </p>
       </div>
     </div>

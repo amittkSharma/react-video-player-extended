@@ -20,21 +20,10 @@ interface Props {
   onMarkerClick: (marker: Marker) => void
   onNextFrameClick: () => void
   onLastFrameClick: () => void
+  selectedMarker: Marker
 }
 
-interface State {
-  selectedMarker: Marker | undefined
-}
-
-export class Controls extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-
-    this.state = {
-      selectedMarker: undefined,
-    }
-  }
-
+export class Controls extends React.Component<Props, never> {
   getTimeCode = (secs: number): string => {
     let secondsNumber = secs ? parseInt(String(secs), 10) : 0
     let hours = Math.floor(secondsNumber / 3600)
@@ -58,7 +47,6 @@ export class Controls extends React.Component<Props, State> {
   }
 
   handleOnMarkerSelection = (selectedMarker: Marker): void => {
-    this.setState({ selectedMarker })
     this.props.onMarkerClick(selectedMarker)
   }
 
@@ -81,6 +69,7 @@ export class Controls extends React.Component<Props, State> {
       onFullScreenClick,
       onNextFrameClick,
       onLastFrameClick,
+      selectedMarker,
     } = this.props
 
     const durationTimeCode = this.getTimeCode(Math.ceil(duration))
@@ -125,7 +114,7 @@ export class Controls extends React.Component<Props, State> {
                     marker={marker}
                     duration={duration}
                     onMarkerClick={this.handleOnMarkerSelection}
-                    selectedMarker={this.state.selectedMarker}
+                    selectedMarker={selectedMarker}
                   />
                 )
               })}
