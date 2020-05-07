@@ -9,7 +9,7 @@ interface Props {
     marker: Marker;
     duration: number;
     onMarkerClick: (marker: Marker) => void;
-    selectedMarker: Marker;
+    selectedMarker?: Marker;
 }
 export declare class MarkerView extends React.Component<Props, never> {
     getPosition: () => string;

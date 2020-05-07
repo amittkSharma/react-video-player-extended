@@ -20,7 +20,7 @@ interface Props {
   onProgress?: (event: Event) => void
   onDuration?: (duration: number) => void
   onMarkerClick?: (marker: Marker) => void
-  selectedMarker: Marker
+  selectedMarker?: Marker
 }
 
 const DEFAULT_VOLUME: number = 0.7

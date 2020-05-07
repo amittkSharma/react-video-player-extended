@@ -18,7 +18,7 @@ interface Props {
     onProgress?: (event: Event) => void;
     onDuration?: (duration: number) => void;
     onMarkerClick?: (marker: Marker) => void;
-    selectedMarker: Marker;
+    selectedMarker?: Marker;
 }
 declare function VideoPlayer(props: Props): JSX.Element;
 export default VideoPlayer;

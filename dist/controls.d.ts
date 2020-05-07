@@ -19,7 +19,7 @@ interface Props {
     onMarkerClick: (marker: Marker) => void;
     onNextFrameClick: () => void;
     onLastFrameClick: () => void;
-    selectedMarker: Marker;
+    selectedMarker?: Marker;
 }
 export declare class Controls extends React.Component<Props, never> {
     getTimeCode: (secs: number) => string;

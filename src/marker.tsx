@@ -11,7 +11,7 @@ interface Props {
   marker: Marker
   duration: number
   onMarkerClick: (marker: Marker) => void
-  selectedMarker: Marker
+  selectedMarker?: Marker
 }
 
 export class MarkerView extends React.Component<Props, never> {
