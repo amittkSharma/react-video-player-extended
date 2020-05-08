@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
+import { ControlSelection } from '../src/controls'
 import VideoPlayer from '../src/index'
 import './styles.css'
 
 function App() {
   const statelist = [url, controls, isPlaying, volume, timeStart, fps]
   const [url] = useState('https://media.w3.org/2010/05/bunny/trailer.mp4')
-  const [controls, setControls] = useState(['play', 'time', 'progress', 'volume', 'full-screen'])
+  const [controls, setControls] = useState([
+    ControlSelection.Play,
+    ControlSelection.Time,
+    ControlSelection.Progress,
+    ControlSelection.Volume,
+    ControlSelection.FullScreen,
+  ])
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(0.7)
   const [timeStart] = useState(5)
@@ -14,31 +21,31 @@ function App() {
 
   const controlsList = [
     {
-      id: 'play',
+      id: ControlSelection.Play,
       title: 'Play button',
     },
     {
-      id: 'time',
+      id: ControlSelection.Time,
       title: 'Time',
     },
     {
-      id: 'progress',
+      id: ControlSelection.Progress,
       title: 'Progress',
     },
     {
-      id: 'volume',
+      id: ControlSelection.Volume,
       title: 'Volume',
     },
     {
-      id: 'full-screen',
+      id: ControlSelection.FullScreen,
       title: 'Full Screen',
     },
     {
-      id: 'next-frame',
+      id: ControlSelection.NextFrame,
       title: 'Next Frame',
     },
     {
-      id: 'last-frame',
+      id: ControlSelection.LastFrame,
       title: 'Last Frame',
     },
   ]
@@ -122,7 +129,7 @@ function App() {
           Controls:
           {controlsList.map((control) => {
             return (
-              <label key={control.id} htmlFor={control.id}>
+              <label key={control.id.toString()} htmlFor={control.id}>
                 <input
                   id={control.id}
                   type="checkbox"

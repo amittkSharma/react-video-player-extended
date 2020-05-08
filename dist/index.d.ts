@@ -1,9 +1,10 @@
 /// <reference types="react" />
+import { ControlSelection } from './controls';
 import { Marker } from './marker';
 import './styles.css';
 interface Props {
     url: string;
-    controls?: string[];
+    controls?: ControlSelection[];
     height?: string;
     width?: string;
     isPlaying: boolean;

@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Controls } from './controls'
+import { Controls, ControlSelection } from './controls'
 import { Marker } from './marker'
 import './styles.css'
 
 interface Props {
   url: string
-  controls?: string[]
+  controls?: ControlSelection[]
   height?: string
   width?: string
   isPlaying: boolean
@@ -37,7 +37,13 @@ function VideoPlayer(props: Props) {
 
   const {
     url,
-    controls = ['play', 'time', 'progress', 'volume', 'full-screen'],
+    controls = [
+      ControlSelection.Play,
+      ControlSelection.Time,
+      ControlSelection.Progress,
+      ControlSelection.Volume,
+      ControlSelection.FullScreen,
+    ],
     height = '360px',
     width = '640px',
     isPlaying = false,
