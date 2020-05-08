@@ -73,7 +73,7 @@ class App extends Component {
 
 Prop | Description | Default
 ---- | ----------- | -------
-`controls` | Set visible controls. Available controls: `play`, `time`, `progress`, `volume`, `full-screen` | ['play', 'time', 'progress', 'volume', 'full-screen']
+`controls` | Set visible controls. Available controls: ControlSelection | [ControlSelection.Play, ControlSelection.Time, ControlSelection.Progress, ControlSelection.Volume, ControlSelection.FullScreen]
 `height` | Set the height of the player | '360px'
 `width` | Set the width of the player | '640px'
 `isPlaying` | Set to `true` or `false` to play or pause the media | false
@@ -83,6 +83,7 @@ Prop | Description | Default
 `timeStart` | Set the second number to start playing video | 0
 `url` | The url of a video |
 `fps` | Frame per second | 30
+`SelectedMarked` | Selected marker | undefined
 
 ### Callback Events
 
