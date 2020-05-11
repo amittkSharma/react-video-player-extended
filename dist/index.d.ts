@@ -1,6 +1,7 @@
 /// <reference types="react" />
 import { ControlSelection } from './controls';
 import { Marker } from './marker';
+import { SettingsSelection } from './settings-viewer';
 import './styles.css';
 interface Props {
     url: string;
@@ -20,6 +21,7 @@ interface Props {
     onDuration?: (duration: number) => void;
     onMarkerClick?: (marker: Marker) => void;
     selectedMarker?: Marker;
+    viewSettings?: SettingsSelection[];
 }
 declare function VideoPlayer(props: Props): JSX.Element;
 export default VideoPlayer;

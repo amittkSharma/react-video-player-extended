@@ -65,9 +65,10 @@ class App extends Component {
 
 ### Features
 
-- Package supports basic video player functionality like play/pause, volume control and fullscreen
+- Package supports basic video player functionality like play/pause, volume control and full screen
 - Markers display and selection
 - Jumping back and forth between frames based on FPS (default fps value is 30)
+- Display various settings associated with the video player such as title, fps, volume, repeat, start time
 
 ### Props
 
@@ -83,7 +84,8 @@ Prop | Description | Default
 `timeStart` | Set the second number to start playing video | 0
 `url` | The url of a video |
 `fps` | Frame per second | 30
-`SelectedMarked` | Selected marker | undefined
+`selectedMarker` | Selected marker | undefined
+`viewSettings` | Array of SettingSelection displaying various video player settings e.g. Title, FPS, Volume, Repeat, Start Time | undefined
 
 ### Callback Events
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Controls, ControlSelection } from './controls'
 import { Marker } from './marker'
+import { SettingsSelection, SettingsViewer } from './settings-viewer'
 import './styles.css'
 
 interface Props {
@@ -21,6 +22,7 @@ interface Props {
   onDuration?: (duration: number) => void
   onMarkerClick?: (marker: Marker) => void
   selectedMarker?: Marker
+  viewSettings?: SettingsSelection[]
 }
 
 const DEFAULT_VOLUME: number = 0.7
@@ -65,6 +67,7 @@ function VideoPlayer(props: Props) {
     // tslint:disable-next-line: no-empty
     onMarkerClick = () => {},
     selectedMarker,
+    viewSettings,
   } = props
 
   useEffect(() => {
@@ -221,13 +224,16 @@ function VideoPlayer(props: Props) {
       <video ref={playerEl} className="react-video-player" loop={loop} onClick={handlePlayerClick}>
         <source src={url} type="video/mp4" />
       </video>
-      <div className="overlay-desc">
-        <p className="text-col">{`Title: ${url.substring(url.lastIndexOf('/') + 1)}`}</p>
-        <p className="text-col">{`FPS: ${fps}`}</p>
-        <p className="text-col">{`Looping: ${loop}`}</p>
-        <p className="text-col">{`Start Time: ${timeStart}`}</p>
-        <p className="text-col">{`Volume: ${volume}`}</p>
-      </div>
+      {viewSettings && (
+        <SettingsViewer
+          url={url}
+          fps={fps}
+          timeStart={timeStart}
+          volume={volume}
+          loop={loop}
+          viewSettings={viewSettings}
+        />
+      )}
       {isFullScreen ? (
         <button className="react-video-close" onClick={handleFullScreenClick}>
           Close video
