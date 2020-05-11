@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { ControlSelection } from '../src/controls'
 import VideoPlayer from '../src/index'
+import { SettingsSelection } from '../src/settings-viewer'
 import './styles.css'
 
 function App() {
-  const statelist = [url, controls, isPlaying, volume, timeStart, fps]
   const [url] = useState('https://media.w3.org/2010/05/bunny/trailer.mp4')
   const [controls, setControls] = useState([
     ControlSelection.Play,
@@ -13,6 +13,7 @@ function App() {
     ControlSelection.Volume,
     ControlSelection.FullScreen,
   ])
+  const [settings, setSettings] = useState([SettingsSelection.Title])
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(0.7)
   const [timeStart] = useState(5)
@@ -50,6 +51,29 @@ function App() {
     },
   ]
 
+  const settingsList = [
+    {
+      id: SettingsSelection.Title,
+      title: 'Title',
+    },
+    {
+      id: SettingsSelection.FPS,
+      title: 'FPS',
+    },
+    {
+      id: SettingsSelection.Volume,
+      title: 'Volume',
+    },
+    {
+      id: SettingsSelection.Repeat,
+      title: 'Repeat',
+    },
+    {
+      id: SettingsSelection.StartTime,
+      title: 'Start Time',
+    },
+  ]
+
   const handlePlay = () => {
     setIsPlaying(true)
   }
@@ -67,6 +91,17 @@ function App() {
       result.push(name)
     }
     setControls(result)
+  }
+
+  const handleSettingToggle = (event) => {
+    let result = [...settings]
+    const name = event.target.id
+    if (result.includes(name)) {
+      result = result.filter((item) => item !== name)
+    } else {
+      result.push(name)
+    }
+    setSettings(result)
   }
 
   const handleVolume = (value) => {
@@ -112,7 +147,7 @@ function App() {
         volume={volume}
         loop={true}
         markers={markers}
-        height={'360px'}
+        height={'auto'}
         width={'640px'}
         timeStart={timeStart}
         onPlay={handlePlay}
@@ -123,6 +158,7 @@ function App() {
         onMarkerClick={handleMarkerClick}
         fps={fps}
         selectedMarker={selectedMarker}
+        viewSettings={settings}
       />
       <div className="controls">
         <p className="control-list">
@@ -159,6 +195,23 @@ function App() {
           {selectedMarker === undefined
             ? 'No Marker is Selected'
             : JSON.stringify(selectedMarker, null, 2)}
+        </p>
+
+        <p className="control-list">
+          Settings:
+          {settingsList.map((setting) => {
+            return (
+              <label key={setting.id.toString()} htmlFor={setting.id}>
+                <input
+                  id={setting.id}
+                  type="checkbox"
+                  checked={settings.includes(setting.id)}
+                  onChange={handleSettingToggle}
+                />{' '}
+                {setting.title}
+              </label>
+            )
+          })}
         </p>
       </div>
     </div>

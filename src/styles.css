@@ -3,6 +3,25 @@
   position: relative;
 }
 
+.overlay-desc .text-col {
+  color: white;
+  font-family: 'Nobile', sans-serif;
+  font-size: 0.7vw;
+  font-weight: 500;
+}
+
+.overlay-desc {
+  background: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
 .react-video-wrap video {
   background-color: #000000;
   display: block;
