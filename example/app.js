@@ -112,7 +112,7 @@ function App() {
         volume={volume}
         loop={true}
         markers={markers}
-        height={'360px'}
+        height={'auto'}
         width={'640px'}
         timeStart={timeStart}
         onPlay={handlePlay}
