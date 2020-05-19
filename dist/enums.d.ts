@@ -1,16 +1,2 @@
-export declare enum ControlSelection {
-    FullScreen = "FullScreen",
-    Play = "Play",
-    Progress = "Progress",
-    Time = "Time",
-    Volume = "Volume",
-    LastFrame = "LastFrame",
-    NextFrame = "NextFrame"
-}
-export declare enum SettingsSelection {
-    Title = "title",
-    FPS = "fps",
-    Repeat = "loop",
-    StartTime = "timeStart",
-    Volume = "vol"
-}
+export declare type ControlSelection = 'FullScreen' | 'Play' | 'Progress' | 'Time' | 'Volume' | 'LastFrame' | 'NextFrame';
+export declare type SettingsSelection = 'Title' | 'FPS' | 'Repeat' | 'StartTime' | 'Volume';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { SettingsSelection } from './enums';
 import './styles.css';
 interface Props {
     url: string;
@@ -7,7 +6,7 @@ interface Props {
     loop: boolean;
     timeStart: number;
     volume: number;
-    viewSettings?: SettingsSelection[];
+    viewSettings?: string[];
 }
 export declare const SettingsViewer: React.SFC<Props>;
 export {};

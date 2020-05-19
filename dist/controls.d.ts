@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { ControlSelection } from './enums';
 import { Marker } from './marker';
 interface Props {
     progressEl: React.MutableRefObject<HTMLProgressElement>;
     volumeEl: React.MutableRefObject<HTMLProgressElement>;
-    controls: ControlSelection[];
+    controls: string[];
     isPlaying: boolean;
     volume: number;
     muted: boolean;

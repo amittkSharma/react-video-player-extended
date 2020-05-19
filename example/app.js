@@ -1,18 +1,11 @@
 import React, { useState } from 'react'
-import { ControlSelection, SettingsSelection } from '../src/enums'
 import VideoPlayer from '../src/index'
 import './styles.css'
 
 function App() {
   const [url] = useState('https://media.w3.org/2010/05/bunny/trailer.mp4')
-  const [controls, setControls] = useState([
-    ControlSelection.Play,
-    ControlSelection.Time,
-    ControlSelection.Progress,
-    ControlSelection.Volume,
-    ControlSelection.FullScreen,
-  ])
-  const [settings, setSettings] = useState([SettingsSelection.Title])
+  const [controls, setControls] = useState(['Play', 'Time', 'Progress', 'Volume', 'FullScreen'])
+  const [settings, setSettings] = useState(['Title'])
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(0.7)
   const [timeStart] = useState(5)
@@ -21,54 +14,54 @@ function App() {
 
   const controlsList = [
     {
-      id: ControlSelection.Play,
+      id: 'Play',
       title: 'Play button',
     },
     {
-      id: ControlSelection.Time,
+      id: 'Time',
       title: 'Time',
     },
     {
-      id: ControlSelection.Progress,
+      id: 'Progress',
       title: 'Progress',
     },
     {
-      id: ControlSelection.Volume,
+      id: 'Volume',
       title: 'Volume',
     },
     {
-      id: ControlSelection.FullScreen,
+      id: 'FullScreen',
       title: 'Full Screen',
     },
     {
-      id: ControlSelection.NextFrame,
+      id: 'NextFrame',
       title: 'Next Frame',
     },
     {
-      id: ControlSelection.LastFrame,
+      id: 'LastFrame',
       title: 'Last Frame',
     },
   ]
 
   const settingsList = [
     {
-      id: SettingsSelection.Title,
+      id: 'Title',
       title: 'Title',
     },
     {
-      id: SettingsSelection.FPS,
+      id: 'FPS',
       title: 'FPS',
     },
     {
-      id: SettingsSelection.Volume,
+      id: 'Volume',
       title: 'Volume',
     },
     {
-      id: SettingsSelection.Repeat,
+      id: 'Repeat',
       title: 'Repeat',
     },
     {
-      id: SettingsSelection.StartTime,
+      id: 'StartTime',
       title: 'Start Time',
     },
   ]

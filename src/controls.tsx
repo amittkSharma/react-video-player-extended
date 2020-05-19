@@ -1,11 +1,20 @@
 import * as React from 'react'
-import { ControlSelection } from './enums'
 import { Marker, MarkerView } from './marker'
+
+enum ControlsSelection {
+  FullScreen = 'FullScreen',
+  Play = 'Play',
+  Progress = 'Progress',
+  Time = 'Time',
+  Volume = 'Volume',
+  LastFrame = 'LastFrame',
+  NextFrame = 'NextFrame',
+}
 
 interface Props {
   progressEl: React.MutableRefObject<HTMLProgressElement>
   volumeEl: React.MutableRefObject<HTMLProgressElement>
-  controls: ControlSelection[]
+  controls: string[]
   isPlaying: boolean
   volume: number
   muted: boolean
@@ -79,7 +88,7 @@ export class Controls extends React.Component<Props, never> {
 
     return (
       <div className="react-video-controls">
-        {controls.indexOf(ControlSelection.Play) !== -1 && (
+        {controls.indexOf(ControlsSelection.Play.toString()) !== -1 && (
           <button
             className={isPlaying ? 'pause' : 'play'}
             onClick={isPlaying ? onPauseClick : onPlayClick}
@@ -87,22 +96,22 @@ export class Controls extends React.Component<Props, never> {
             {isPlaying ? 'Pause' : 'Play'}
           </button>
         )}
-        {controls.indexOf(ControlSelection.LastFrame) !== -1 && (
+        {controls.indexOf(ControlsSelection.LastFrame.toString()) !== -1 && (
           <button className="last-frame" onClick={onLastFrameClick}>
             Next Frame
           </button>
         )}
-        {controls.indexOf(ControlSelection.NextFrame) !== -1 && (
+        {controls.indexOf(ControlsSelection.NextFrame.toString()) !== -1 && (
           <button className="next-frame" onClick={onNextFrameClick}>
             Next Frame
           </button>
         )}
-        {controls.indexOf(ControlSelection.Time) !== -1 && (
+        {controls.indexOf(ControlsSelection.Time.toString()) !== -1 && (
           <div className="time">
             {currentTimeCode}/{durationTimeCode}
           </div>
         )}
-        {controls.indexOf(ControlSelection.Progress) !== -1 && (
+        {controls.indexOf(ControlsSelection.Progress.toString()) !== -1 && (
           <div className="progress-wrap">
             <progress ref={progressEl} max="100" onClick={onProgressClick}>
               0% played
@@ -121,7 +130,7 @@ export class Controls extends React.Component<Props, never> {
               })}
           </div>
         )}
-        {controls.indexOf(ControlSelection.Volume) !== -1 && (
+        {controls.indexOf(ControlsSelection.Volume.toString()) !== -1 && (
           <div className="volume-wrap">
             <progress ref={volumeEl} max="100" value={volume * 100} onClick={onVolumeClick}>
               {volume * 100}% volume
@@ -131,7 +140,7 @@ export class Controls extends React.Component<Props, never> {
             </button>
           </div>
         )}
-        {controls.indexOf(ControlSelection.FullScreen) !== -1 && (
+        {controls.indexOf(ControlsSelection.FullScreen.toString()) !== -1 && (
           <button className="full-screen" onClick={onFullScreenClick}>
             FullScreen
           </button>

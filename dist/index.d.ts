@@ -1,7 +1,8 @@
 /// <reference types="react" />
-import { ControlSelection, SettingsSelection } from './enums';
 import { Marker } from './marker';
 import './styles.css';
+export declare type ControlSelection = 'FullScreen' | 'Play' | 'Progress' | 'Time' | 'Volume' | 'LastFrame' | 'NextFrame';
+export declare type SettingsSelection = 'Title' | 'FPS' | 'Repeat' | 'StartTime' | 'Volume';
 interface Props {
     url: string;
     controls?: ControlSelection[];

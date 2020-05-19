@@ -1,9 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Controls } from './controls'
-import { ControlSelection, SettingsSelection } from './enums'
 import { Marker } from './marker'
 import { SettingsViewer } from './settings-viewer'
 import './styles.css'
+
+export type ControlSelection =
+  | 'FullScreen'
+  | 'Play'
+  | 'Progress'
+  | 'Time'
+  | 'Volume'
+  | 'LastFrame'
+  | 'NextFrame'
+
+export type SettingsSelection = 'Title' | 'FPS' | 'Repeat' | 'StartTime' | 'Volume'
 
 interface Props {
   url: string
@@ -40,13 +50,7 @@ function VideoPlayer(props: Props) {
 
   const {
     url,
-    controls = [
-      ControlSelection.Play,
-      ControlSelection.Time,
-      ControlSelection.Progress,
-      ControlSelection.Volume,
-      ControlSelection.FullScreen,
-    ],
+    controls = ['Play', 'Time', 'Progress', 'Volume', 'FullScreen'],
     height = '360px',
     width = '640px',
     isPlaying = false,
