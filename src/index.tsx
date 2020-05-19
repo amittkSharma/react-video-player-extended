@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Controls } from './controls'
-import { Marker } from './marker'
+import { Marker, MarkerConfiguration } from './marker'
 import { SettingsViewer } from './settings-viewer'
 import './styles.css'
 
@@ -34,6 +34,7 @@ interface Props {
   onMarkerClick?: (marker: Marker) => void
   selectedMarker?: Marker
   viewSettings?: SettingsSelection[]
+  markerConfiguration?: MarkerConfiguration
 }
 
 const DEFAULT_VOLUME: number = 0.7
@@ -73,6 +74,7 @@ function VideoPlayer(props: Props) {
     onMarkerClick = () => {},
     selectedMarker,
     viewSettings,
+    markerConfiguration,
   } = props
 
   useEffect(() => {
@@ -265,6 +267,7 @@ function VideoPlayer(props: Props) {
           onNextFrameClick={handleNextFrameClick}
           onLastFrameClick={handleLastFrameClick}
           selectedMarker={selectedMarker}
+          markerConfiguration={markerConfiguration}
         />
       ) : null}
     </div>

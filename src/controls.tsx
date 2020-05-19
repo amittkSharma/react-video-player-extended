@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Marker, MarkerView } from './marker'
+import { Marker, MarkerConfiguration, MarkerView } from './marker'
 
 enum ControlsSelection {
   FullScreen = 'FullScreen',
@@ -31,6 +31,7 @@ interface Props {
   onNextFrameClick: () => void
   onLastFrameClick: () => void
   selectedMarker?: Marker
+  markerConfiguration?: MarkerConfiguration
 }
 
 export class Controls extends React.Component<Props, never> {
@@ -80,6 +81,7 @@ export class Controls extends React.Component<Props, never> {
       onNextFrameClick,
       onLastFrameClick,
       selectedMarker,
+      markerConfiguration,
     } = this.props
 
     const durationTimeCode = this.getTimeCode(Math.ceil(duration))
@@ -125,6 +127,7 @@ export class Controls extends React.Component<Props, never> {
                     duration={duration}
                     onMarkerClick={this.handleOnMarkerSelection}
                     selectedMarker={selectedMarker}
+                    configuration={markerConfiguration}
                   />
                 )
               })}

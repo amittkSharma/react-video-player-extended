@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { Marker } from './marker';
+import { Marker, MarkerConfiguration } from './marker';
 import './styles.css';
 export declare type ControlSelection = 'FullScreen' | 'Play' | 'Progress' | 'Time' | 'Volume' | 'LastFrame' | 'NextFrame';
 export declare type SettingsSelection = 'Title' | 'FPS' | 'Repeat' | 'StartTime' | 'Volume';
@@ -22,6 +22,7 @@ interface Props {
     onMarkerClick?: (marker: Marker) => void;
     selectedMarker?: Marker;
     viewSettings?: SettingsSelection[];
+    markerConfiguration?: MarkerConfiguration;
 }
 declare function VideoPlayer(props: Props): JSX.Element;
 export default VideoPlayer;

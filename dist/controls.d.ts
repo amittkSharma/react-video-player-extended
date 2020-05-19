@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Marker } from './marker';
+import { Marker, MarkerConfiguration } from './marker';
 interface Props {
     progressEl: React.MutableRefObject<HTMLProgressElement>;
     volumeEl: React.MutableRefObject<HTMLProgressElement>;
@@ -20,6 +20,7 @@ interface Props {
     onNextFrameClick: () => void;
     onLastFrameClick: () => void;
     selectedMarker?: Marker;
+    markerConfiguration?: MarkerConfiguration;
 }
 export declare class Controls extends React.Component<Props, never> {
     getTimeCode: (secs: number) => string;

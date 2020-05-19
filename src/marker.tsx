@@ -3,8 +3,12 @@ import * as React from 'react'
 export interface Marker {
   id: number
   time: number
-  color: string
   title: string
+}
+
+export interface MarkerConfiguration {
+  color: string
+  selectionColor: string
 }
 
 interface Props {
@@ -12,6 +16,7 @@ interface Props {
   duration: number
   onMarkerClick: (marker: Marker) => void
   selectedMarker?: Marker
+  configuration?: MarkerConfiguration
 }
 
 export class MarkerView extends React.Component<Props, never> {
@@ -26,14 +31,18 @@ export class MarkerView extends React.Component<Props, never> {
   }
 
   render() {
-    const { marker, onMarkerClick } = this.props
-    const { color, title } = marker
+    const { marker, configuration, onMarkerClick } = this.props
+    const { title } = marker
     const id = String(marker.id)
 
     let selectedColor =
       this.props.selectedMarker !== undefined && this.props.selectedMarker.id === marker.id
-        ? '#7CFC00'
-        : color
+        ? configuration !== undefined
+          ? configuration.selectionColor
+          : '#4CAF50'
+        : configuration !== undefined
+        ? configuration.color
+        : '#F44336'
 
     return (
       <i
