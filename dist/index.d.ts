@@ -1,7 +1,6 @@
 /// <reference types="react" />
-import { ControlSelection } from './controls';
+import { ControlSelection, SettingsSelection } from './enums';
 import { Marker } from './marker';
-import { SettingsSelection } from './settings-viewer';
 import './styles.css';
 interface Props {
     url: string;

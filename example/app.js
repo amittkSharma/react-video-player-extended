@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { ControlSelection } from '../src/controls'
+import { ControlSelection, SettingsSelection } from '../src/enums'
 import VideoPlayer from '../src/index'
-import { SettingsSelection } from '../src/settings-viewer'
 import './styles.css'
 
 function App() {

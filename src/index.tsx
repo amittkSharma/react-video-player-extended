@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Controls, ControlSelection } from './controls'
+import { Controls } from './controls'
+import { ControlSelection, SettingsSelection } from './enums'
 import { Marker } from './marker'
-import { SettingsSelection, SettingsViewer } from './settings-viewer'
+import { SettingsViewer } from './settings-viewer'
 import './styles.css'
 
 interface Props {

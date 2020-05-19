@@ -1,15 +1,6 @@
 import * as React from 'react'
+import { ControlSelection } from './enums'
 import { Marker, MarkerView } from './marker'
-
-export const enum ControlSelection {
-  FullScreen = 'FullScreen',
-  Play = 'Play',
-  Progress = 'Progress',
-  Time = 'Time',
-  Volume = 'Volume',
-  LastFrame = 'LastFrame',
-  NextFrame = 'NextFrame',
-}
 
 interface Props {
   progressEl: React.MutableRefObject<HTMLProgressElement>

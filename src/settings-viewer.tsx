@@ -1,13 +1,6 @@
 import * as React from 'react'
+import { SettingsSelection } from './enums'
 import './styles.css'
-
-export const enum SettingsSelection {
-  Title = 'title',
-  FPS = 'fps',
-  Repeat = 'loop',
-  StartTime = 'timeStart',
-  Volume = 'vol',
-}
 
 interface Props {
   url: string
