@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Marker, MarkerView } from './marker'
 
-export enum ControlSelection {
+export const enum ControlSelection {
   FullScreen = 'FullScreen',
   Play = 'Play',
   Progress = 'Progress',

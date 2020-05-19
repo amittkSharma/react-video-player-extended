@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './styles.css'
 
-export enum SettingsSelection {
+export const enum SettingsSelection {
   Title = 'title',
   FPS = 'fps',
   Repeat = 'loop',
