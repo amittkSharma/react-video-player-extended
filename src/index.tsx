@@ -221,10 +221,12 @@ function VideoPlayer(props: Props) {
     }
 
     return () => {
-      playerEl.current.removeEventListener('timeupdate', handleProgress)
-      playerEl.current.removeEventListener('durationchange', handleDurationLoaded)
+      if (playerEl) {
+        playerEl.current.removeEventListener('timeupdate', handleProgress)
+        playerEl.current.removeEventListener('durationchange', handleDurationLoaded)
+      }
     }
-  }, [])
+  }, [playerEl, handleProgress, handleDurationLoaded])
 
   return (
     <div className="react-video-wrap" style={{ height, width }}>
