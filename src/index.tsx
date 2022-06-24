@@ -78,22 +78,6 @@ function VideoPlayer(props: Props) {
   } = props
 
   useEffect(() => {
-    playerEl.current.addEventListener('timeupdate', handleProgress)
-    playerEl.current.addEventListener('durationchange', handleDurationLoaded)
-    if (timeStart) {
-      seekToPlayer()
-    }
-    if (isPlaying) {
-      playerEl.current.play()
-    }
-
-    return () => {
-      playerEl.current.removeEventListener('timeupdate', handleProgress)
-      playerEl.current.removeEventListener('durationchange', handleDurationLoaded)
-    }
-  }, [])
-
-  useEffect(() => {
     seekToPlayer()
   }, [timeStart])
 
@@ -225,6 +209,22 @@ function VideoPlayer(props: Props) {
     const frameTime = 1 / fps
     playerEl.current.currentTime = Math.max(0, playerEl.current.currentTime - frameTime)
   }
+
+  useEffect(() => {
+    playerEl.current.addEventListener('timeupdate', handleProgress)
+    playerEl.current.addEventListener('durationchange', handleDurationLoaded)
+    if (timeStart) {
+      seekToPlayer()
+    }
+    if (isPlaying) {
+      playerEl.current.play()
+    }
+
+    return () => {
+      playerEl.current.removeEventListener('timeupdate', handleProgress)
+      playerEl.current.removeEventListener('durationchange', handleDurationLoaded)
+    }
+  }, [])
 
   return (
     <div className="react-video-wrap" style={{ height, width }}>
