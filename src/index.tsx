@@ -211,6 +211,7 @@ function VideoPlayer(props: Props) {
   }
 
   useEffect(() => {
+    console.log(`User effect: ${playerEl}`)
     playerEl.current.addEventListener('timeupdate', handleProgress)
     playerEl.current.addEventListener('durationchange', handleDurationLoaded)
     if (timeStart) {
@@ -221,12 +222,13 @@ function VideoPlayer(props: Props) {
     }
 
     return () => {
+      console.log(`User effect return: ${playerEl}`)
       if (playerEl) {
         playerEl.current.removeEventListener('timeupdate', handleProgress)
         playerEl.current.removeEventListener('durationchange', handleDurationLoaded)
       }
     }
-  }, [playerEl, handleProgress, handleDurationLoaded])
+  })
 
   return (
     <div className="react-video-wrap" style={{ height, width }}>
