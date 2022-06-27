@@ -125,8 +125,10 @@ function VideoPlayer(props: Props) {
     if (duration) {
       setCurrentTime(currentTime)
       const percentage = (100 / duration) * currentTime
-      progressEl.current.value = percentage
-      progressEl.current.innerHTML = percentage + '% played'
+      if (progressEl && progressEl.current) {
+        progressEl.current.value = percentage
+        progressEl.current.innerHTML = percentage + '% played'
+      }
       if (currentTime === duration) {
         onPause()
       }
