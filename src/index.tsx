@@ -211,7 +211,6 @@ function VideoPlayer(props: Props) {
   }
 
   useEffect(() => {
-    console.log(`User effect: ${playerEl}`)
     playerEl.current.addEventListener('timeupdate', handleProgress)
     playerEl.current.addEventListener('durationchange', handleDurationLoaded)
     if (timeStart) {
@@ -222,8 +221,8 @@ function VideoPlayer(props: Props) {
     }
 
     return () => {
-      console.log(`User effect return: ${playerEl}`)
-      if (playerEl) {
+      console.log(`User effect return`)
+      if (playerEl && playerEl.current) {
         playerEl.current.removeEventListener('timeupdate', handleProgress)
         playerEl.current.removeEventListener('durationchange', handleDurationLoaded)
       }
