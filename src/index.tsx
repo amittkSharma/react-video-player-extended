@@ -221,7 +221,6 @@ function VideoPlayer(props: Props) {
     }
 
     return () => {
-      console.log(`User effect return`)
       if (playerEl && playerEl.current) {
         playerEl.current.removeEventListener('timeupdate', handleProgress)
         playerEl.current.removeEventListener('durationchange', handleDurationLoaded)
