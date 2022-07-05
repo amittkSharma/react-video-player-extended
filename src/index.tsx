@@ -32,6 +32,7 @@ interface Props {
   onProgress?: (event: Event) => void
   onDuration?: (duration: number) => void
   onMarkerClick?: (marker: Marker) => void
+  onLoadedMetadata?: (event: React.SyntheticEvent<HTMLVideoElement, Event>) => void
   selectedMarker?: Marker
   viewSettings?: SettingsSelection[]
   markerConfiguration?: MarkerConfiguration
@@ -72,6 +73,8 @@ function VideoPlayer(props: Props) {
     onDuration = () => {},
     // tslint:disable-next-line: no-empty
     onMarkerClick = () => {},
+    // tslint:disable-next-line: no-empty
+    onLoadedMetadata = () => {},
     selectedMarker,
     viewSettings,
     markerConfiguration,
@@ -238,6 +241,7 @@ function VideoPlayer(props: Props) {
         className="react-video-player"
         loop={loop}
         onClick={handlePlayerClick}
+        onLoadedMetadata={onLoadedMetadata}
       >
         <source src={url} type="video/mp4" />
       </video>

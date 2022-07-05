@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 import { Marker, MarkerConfiguration } from './marker';
 import './styles.css';
 export declare type ControlSelection = 'FullScreen' | 'Play' | 'Progress' | 'Time' | 'Volume' | 'LastFrame' | 'NextFrame';
@@ -20,6 +20,7 @@ interface Props {
     onProgress?: (event: Event) => void;
     onDuration?: (duration: number) => void;
     onMarkerClick?: (marker: Marker) => void;
+    onLoadedMetadata?: (event: React.SyntheticEvent<HTMLVideoElement, Event>) => void;
     selectedMarker?: Marker;
     viewSettings?: SettingsSelection[];
     markerConfiguration?: MarkerConfiguration;
