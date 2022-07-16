@@ -216,19 +216,20 @@ function VideoPlayer(props: Props) {
   }
 
   useEffect(() => {
-    playerEl.current.addEventListener('timeupdate', handleProgress)
-    playerEl.current.addEventListener('durationchange', handleDurationLoaded)
+    const instance = playerEl.current
+    instance.addEventListener('timeupdate', handleProgress)
+    instance.addEventListener('durationchange', handleDurationLoaded)
     if (timeStart) {
       seekToPlayer()
     }
     if (isPlaying) {
-      playerEl.current.play()
+      instance.play()
     }
 
     return () => {
-      if (playerEl && playerEl.current) {
-        playerEl.current.removeEventListener('timeupdate', handleProgress)
-        playerEl.current.removeEventListener('durationchange', handleDurationLoaded)
+      if (instance) {
+        instance.removeEventListener('timeupdate', handleProgress)
+        instance.removeEventListener('durationchange', handleDurationLoaded)
       }
     }
   }, [])
