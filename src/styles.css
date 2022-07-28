@@ -38,6 +38,8 @@
   bottom: 0;
   left: 0;
   right: 0;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .react-video-controls button {
@@ -66,7 +68,7 @@
 .react-video-controls .volume {
   background-image: url('./images/volume-black.svg');
   background-position-x: 0;
-  width: 17px;
+
 }
 
 .react-video-controls .no-volume {

@@ -90,17 +90,17 @@ export class Controls extends React.Component<Props, never> {
 
     return (
       <div className="react-video-controls">
+        {controls.indexOf(ControlsSelection.LastFrame.toString()) !== -1 && (
+          <button className="last-frame" onClick={onLastFrameClick}>
+            Last Frame
+          </button>
+        )}
         {controls.indexOf(ControlsSelection.Play.toString()) !== -1 && (
           <button
             className={isPlaying ? 'pause' : 'play'}
             onClick={isPlaying ? onPauseClick : onPlayClick}
           >
             {isPlaying ? 'Pause' : 'Play'}
-          </button>
-        )}
-        {controls.indexOf(ControlsSelection.LastFrame.toString()) !== -1 && (
-          <button className="last-frame" onClick={onLastFrameClick}>
-            Next Frame
           </button>
         )}
         {controls.indexOf(ControlsSelection.NextFrame.toString()) !== -1 && (
