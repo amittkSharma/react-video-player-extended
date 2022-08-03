@@ -233,11 +233,13 @@ function VideoPlayer(props: Props) {
     const instance = playerEl.current
     instance.addEventListener('timeupdate', handleProgress)
     instance.addEventListener('durationchange', handleDurationLoaded)
+    playerEl.current.addEventListener('timeupdate', handleProgress)
+    playerEl.current.addEventListener('durationchange', handleDurationLoaded)
     if (timeStart) {
       seekToPlayer()
     }
     if (isPlaying) {
-      instance.play()
+      playerEl.current.play()
     }
 
     return () => {
