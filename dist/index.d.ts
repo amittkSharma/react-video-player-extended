@@ -3,6 +3,11 @@ import { Marker, MarkerConfiguration } from './marker';
 import './styles.css';
 export declare type ControlSelection = 'FullScreen' | 'Play' | 'Progress' | 'Time' | 'Volume' | 'LastFrame' | 'NextFrame';
 export declare type SettingsSelection = 'Title' | 'FPS' | 'Repeat' | 'StartTime' | 'Volume';
+export interface ProgressProps {
+    currentTime: number;
+    duration: number;
+    percentage: number;
+}
 interface Props {
     url: string;
     controls?: ControlSelection[];
@@ -17,7 +22,7 @@ interface Props {
     onPlay?: () => void;
     onPause?: () => void;
     onVolume?: (volume: number) => void;
-    onProgress?: (event: Event) => void;
+    onProgress?: (event: Event, props: ProgressProps) => void;
     onDuration?: (duration: number) => void;
     onMarkerClick?: (marker: Marker) => void;
     onLoadedMetadata?: (event: React.SyntheticEvent<HTMLVideoElement, Event>) => void;

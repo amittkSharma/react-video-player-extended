@@ -15,6 +15,12 @@ export type ControlSelection =
 
 export type SettingsSelection = 'Title' | 'FPS' | 'Repeat' | 'StartTime' | 'Volume'
 
+export interface ProgressProps {
+  currentTime: number
+  duration: number
+  percentage: number
+}
+
 interface Props {
   url: string
   controls?: ControlSelection[]
@@ -29,7 +35,7 @@ interface Props {
   onPlay?: () => void
   onPause?: () => void
   onVolume?: (volume: number) => void
-  onProgress?: (event: Event) => void
+  onProgress?: (event: Event, props: ProgressProps) => void
   onDuration?: (duration: number) => void
   onMarkerClick?: (marker: Marker) => void
   onLoadedMetadata?: (event: React.SyntheticEvent<HTMLVideoElement, Event>) => void
@@ -125,9 +131,10 @@ function VideoPlayer(props: Props) {
     // tslint:disable-next-line: no-shadowed-variable
     const currentTime = currentTarget['currentTime']
     const duration = currentTarget['duration']
+    let percentage = 0
     if (duration) {
       setCurrentTime(currentTime)
-      const percentage = (100 / duration) * currentTime
+      percentage = (100 / duration) * currentTime
       if (progressEl && progressEl.current) {
         progressEl.current.value = percentage
         progressEl.current.innerHTML = percentage + '% played'
@@ -136,7 +143,7 @@ function VideoPlayer(props: Props) {
         onPause()
       }
     }
-    onProgress(e)
+    onProgress(e, { currentTime, duration, percentage })
   }
 
   const handleProgressClick = (e: React.MouseEvent<HTMLProgressElement, MouseEvent>) => {
