@@ -94,7 +94,7 @@ Prop | Description
 onPlay | Called when video is started
 onPause | Called when media is paused
 onVolume | Called when volume is changed. Callback contains `volume`
-onProgress | Callback contains `event`
+onProgress | Callback contains `event, progressProps`, ProgressProps is an object containing currentTime, duration and percentage, 
 onDuration | Callback contains `duration` of the media, in seconds
 onMarkerClick | Called when marked is clicked. Callback contains marker object. Example: `{id: 1, time: 5, color: '#ffc837', title: 'Marker 1'}`
 onLoadedMetadata| Callback is triggered when the video player is loaded with new video, with all the meta-information
