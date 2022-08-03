@@ -73,8 +73,7 @@ function VideoPlayer(props: Props) {
     onPause = () => {},
     // tslint:disable-next-line: no-empty
     onVolume = () => {},
-    // tslint:disable-next-line: no-empty
-    onProgress = () => {},
+    onProgress,
     // tslint:disable-next-line: no-empty
     onDuration = () => {},
     // tslint:disable-next-line: no-empty
@@ -138,12 +137,20 @@ function VideoPlayer(props: Props) {
       if (progressEl && progressEl.current) {
         progressEl.current.value = percentage
         progressEl.current.innerHTML = percentage + '% played'
+      } else {
+        console.error(`Progress is not available`)
       }
       if (currentTime === duration) {
         onPause()
       }
     }
-    onProgress(e, { currentTime, duration, percentage })
+    const progressProps: ProgressProps = {
+      currentTime,
+      duration,
+      percentage,
+    }
+    console.log(`progressProps: ${JSON.stringify(progressProps)}`)
+    onProgress(e, progressProps)
   }
 
   const handleProgressClick = (e: React.MouseEvent<HTMLProgressElement, MouseEvent>) => {
