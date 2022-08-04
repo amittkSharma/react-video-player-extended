@@ -230,16 +230,15 @@ function VideoPlayer(props: Props) {
   }
 
   useEffect(() => {
+    console.log(`Some changes to use effect`)
     const instance = playerEl.current
     instance.addEventListener('timeupdate', handleProgress)
     instance.addEventListener('durationchange', handleDurationLoaded)
-    playerEl.current.addEventListener('timeupdate', handleProgress)
-    playerEl.current.addEventListener('durationchange', handleDurationLoaded)
     if (timeStart) {
       seekToPlayer()
     }
     if (isPlaying) {
-      playerEl.current.play()
+      instance.play()
     }
 
     return () => {
