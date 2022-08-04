@@ -138,7 +138,7 @@ function VideoPlayer(props: Props) {
         progressEl.current.value = percentage
         progressEl.current.innerHTML = percentage + '% played'
       } else {
-        console.error(`Progress is not available`)
+        console.warn(`Progress bar element is not available in DOM`)
       }
       if (currentTime === duration) {
         onPause()
@@ -149,7 +149,6 @@ function VideoPlayer(props: Props) {
       duration,
       percentage,
     }
-    console.log(`progressProps: ${JSON.stringify(progressProps)}`)
     onProgress(e, progressProps)
   }
 
@@ -215,7 +214,6 @@ function VideoPlayer(props: Props) {
   }
 
   const handleNextFrameClick = () => {
-    console.log(`Moving to next frame with fps: ${fps}`)
     const frameTime = 1 / fps
     playerEl.current.currentTime = Math.min(
       playerEl.current.duration,
@@ -224,13 +222,11 @@ function VideoPlayer(props: Props) {
   }
 
   const handleLastFrameClick = () => {
-    console.log(`Moving to last frame with fps: ${fps}`)
     const frameTime = 1 / fps
     playerEl.current.currentTime = Math.max(0, playerEl.current.currentTime - frameTime)
   }
 
   useEffect(() => {
-    console.log(`Some changes to use effect`)
     const instance = playerEl.current
     instance.addEventListener('timeupdate', handleProgress)
     instance.addEventListener('durationchange', handleDurationLoaded)
