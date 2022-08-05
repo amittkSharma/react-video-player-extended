@@ -2,6 +2,6 @@
   "extends": "tslint-checker/tslint-react",
   "rules": {
     "no-submodule-imports": false,
-    "no-console": [false, "log", "error"]
+    "no-console": [true, "log", "error"]
   }
 }

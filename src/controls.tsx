@@ -9,6 +9,7 @@ enum ControlsSelection {
   Volume = 'Volume',
   LastFrame = 'LastFrame',
   NextFrame = 'NextFrame',
+  AddMarker = 'AddMarker',
 }
 
 interface Props {
@@ -30,6 +31,7 @@ interface Props {
   onMarkerClick: (marker: Marker) => void
   onNextFrameClick: () => void
   onLastFrameClick: () => void
+  onAddMarkerClick: () => void
   selectedMarker?: Marker
   markerConfiguration?: MarkerConfiguration
 }
@@ -80,6 +82,7 @@ export class Controls extends React.Component<Props, never> {
       onFullScreenClick,
       onNextFrameClick,
       onLastFrameClick,
+      onAddMarkerClick,
       selectedMarker,
       markerConfiguration,
     } = this.props
@@ -106,6 +109,11 @@ export class Controls extends React.Component<Props, never> {
         {controls.indexOf(ControlsSelection.NextFrame.toString()) !== -1 && (
           <button className="next-frame" onClick={onNextFrameClick}>
             Next Frame
+          </button>
+        )}
+        {controls.indexOf(ControlsSelection.AddMarker.toString()) !== -1 && (
+          <button className="add-marker" onClick={onAddMarkerClick}>
+            Add Marker
           </button>
         )}
         {controls.indexOf(ControlsSelection.Time.toString()) !== -1 && (

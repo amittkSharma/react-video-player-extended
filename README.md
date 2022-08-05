@@ -66,7 +66,7 @@ class App extends Component {
 ### Features
 
 - Package supports basic video player functionality like play/pause, volume control and full screen
-- Markers display and selection
+- Markers creation, display and selection
 - Jumping back and forth between frames based on FPS (default fps value is 30)
 - Display various settings associated with the video player such as title, fps, volume, repeat, start time
 
@@ -85,16 +85,17 @@ Prop | Description | Default
 `url` | The url of a video |
 `fps` | Frame per second | 30
 `selectedMarker` | Selected marker | undefined
-`viewSettings` | Array of SettingSelection displaying various video player settings e.g. Title, FPS, Volume, Repeat, Start Time | undefined
+`viewSettings` | Array of SettingSelection displaying various video player settings e.g. Title, FPS, Volume, Repeat, Start Time, Markers Count | undefined
 
 ### Callback Events
 
-Prop | Description
+Prop | Description | Version
 ---- | -----------
 onPlay | Called when video is started
 onPause | Called when media is paused
 onVolume | Called when volume is changed. Callback contains `volume`
-onProgress | Callback contains `event, progressProps`, ProgressProps is an object containing currentTime, duration and percentage, 
+onProgress | Callback contains `event, progressProps`, ProgressProps is an object containing currentTime, duration and percentage,
 onDuration | Callback contains `duration` of the media, in seconds
 onMarkerClick | Called when marked is clicked. Callback contains marker object. Example: `{id: 1, time: 5, color: '#ffc837', title: 'Marker 1'}`
+onMarkerAdded | Callback when a new marker is being added, this API will return a new marker object with current time. | 8.0.0
 onLoadedMetadata| Callback is triggered when the video player is loaded with new video, with all the meta-information
