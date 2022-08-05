@@ -90,7 +90,7 @@ Prop | Description | Default
 ### Callback Events
 
 Prop | Description | Version
----- | -----------
+---- | ----------- | --------
 onPlay | Called when video is started
 onPause | Called when media is paused
 onVolume | Called when volume is changed. Callback contains `volume`
