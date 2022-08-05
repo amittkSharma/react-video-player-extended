@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### [v8.0.0](https://github.com/amittkSharma/react-video-player-extended/compare/v8.0.0...v8.0.0)
+#### [v8.1.0](https://github.com/amittkSharma/react-video-player-extended/compare/v8.1.0...v8.1.0)
+
+#### [v8.1.0](https://github.com/amittkSharma/react-video-player-extended/compare/v8.0.0...v8.1.0)
+
+> 5 August 2022
+
+- feat: Export markers as JSON file [`#22`](https://github.com/amittkSharma/react-video-player-extended/pull/22)
+- chore: Added changelog to the repo [`#21`](https://github.com/amittkSharma/react-video-player-extended/pull/21)
 
 ### [v8.0.0](https://github.com/amittkSharma/react-video-player-extended/compare/v7.1.0...v8.0.0)
 
