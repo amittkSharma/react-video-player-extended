@@ -59,6 +59,10 @@ function App() {
       id: 'AddMarker',
       title: 'Add Marker',
     },
+    {
+      id: 'ExportMarkers',
+      title: 'Export Markers',
+    },
   ]
 
   const settingsList = [

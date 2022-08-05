@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Marker, MarkerConfiguration, MarkerView } from './marker'
+import { downloadAttachment } from './utils'
 
 enum ControlsSelection {
   FullScreen = 'FullScreen',
@@ -10,6 +11,7 @@ enum ControlsSelection {
   LastFrame = 'LastFrame',
   NextFrame = 'NextFrame',
   AddMarker = 'AddMarker',
+  ExportMarkers = 'ExportMarkers',
 }
 
 interface Props {
@@ -140,6 +142,19 @@ export class Controls extends React.Component<Props, never> {
                 )
               })}
           </div>
+        )}
+        {controls.indexOf(ControlsSelection.ExportMarkers.toString()) !== -1 && (
+          <button
+            className="export-markers"
+            onClick={() =>
+              downloadAttachment(
+                JSON.stringify(markers, null, 2),
+                `Markers_${new Date().toISOString().substring(0, 10)}.json`,
+              )
+            }
+          >
+            Export
+          </button>
         )}
         {controls.indexOf(ControlsSelection.Volume.toString()) !== -1 && (
           <div className="volume-wrap">
