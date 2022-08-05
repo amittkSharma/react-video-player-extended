@@ -69,12 +69,13 @@ class App extends Component {
 - Markers creation, display and selection
 - Jumping back and forth between frames based on FPS (default fps value is 30)
 - Display various settings associated with the video player such as title, fps, volume, repeat, start time
+- Export markers as JSON file.
 
 ### Props
 
 Prop | Description | Default
 ---- | ----------- | -------
-`controls` | Set visible controls. Available controls: ControlSelection | [ControlSelection.Play, ControlSelection.Time, ControlSelection.Progress, ControlSelection.Volume, ControlSelection.FullScreen]
+`controls` | Set visible controls. Available controls: ControlSelection | [ControlSelection.Play, ControlSelection.Time, ControlSelection.Progress, ControlSelection.Volume, ControlSelection.FullScreen, ControlSelection.AddMarker, ControlSelection.ExportMarkers]
 `height` | Set the height of the player | '360px'
 `width` | Set the width of the player | '640px'
 `isPlaying` | Set to `true` or `false` to play or pause the media | false

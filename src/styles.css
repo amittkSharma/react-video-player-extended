@@ -47,7 +47,7 @@
   background-position: center center;
   border: 0;
   cursor: pointer;
-  margin: 10px 7px;
+  margin: 10px 5px;
   padding: 0;
   outline: none;
   height: 16px;
@@ -86,6 +86,12 @@
   width: 15px;
 }
 
+.react-video-controls .export-markers {
+  background-image: url('./images/export-markers.svg');
+  background-position-x: 0;
+  margin-top: 8px;
+  width: 17px;
+}
 
 .react-video-controls .time {
   color: #969696;
