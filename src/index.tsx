@@ -38,6 +38,7 @@ interface Props {
   onProgress?: (event: Event, props: ProgressProps) => void
   onDuration?: (duration: number) => void
   onMarkerClick?: (marker: Marker) => void
+  onMarkerAdded?: (marker: Marker) => void
   onLoadedMetadata?: (event: React.SyntheticEvent<HTMLVideoElement, Event>) => void
   selectedMarker?: Marker
   viewSettings?: SettingsSelection[]
@@ -78,6 +79,7 @@ function VideoPlayer(props: Props) {
     onDuration = () => {},
     // tslint:disable-next-line: no-empty
     onMarkerClick = () => {},
+    onMarkerAdded,
     // tslint:disable-next-line: no-empty
     onLoadedMetadata = () => {},
     selectedMarker,
@@ -226,6 +228,16 @@ function VideoPlayer(props: Props) {
     playerEl.current.currentTime = Math.max(0, playerEl.current.currentTime - frameTime)
   }
 
+  const handleAddMarkerClick = () => {
+    const id = Math.round(Math.random() * 1000)
+    const newMarker: Marker = {
+      id,
+      time: currentTime,
+      title: `newMarker_${id}`,
+    }
+    onMarkerAdded(newMarker)
+  }
+
   useEffect(() => {
     const instance = playerEl.current
     instance.addEventListener('timeupdate', handleProgress)
@@ -264,6 +276,7 @@ function VideoPlayer(props: Props) {
           timeStart={timeStart}
           volume={volume}
           loop={loop}
+          markersCount={markers.length}
           viewSettings={viewSettings}
         />
       )}
@@ -292,6 +305,7 @@ function VideoPlayer(props: Props) {
           onMarkerClick={handleMarkerClick}
           onNextFrameClick={handleNextFrameClick}
           onLastFrameClick={handleLastFrameClick}
+          onAddMarkerClick={handleAddMarkerClick}
           selectedMarker={selectedMarker}
           markerConfiguration={markerConfiguration}
         />

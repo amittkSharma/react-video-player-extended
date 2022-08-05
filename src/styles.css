@@ -4,9 +4,8 @@
 }
 
 .overlay-desc .text-col {
-  color: white;
   font-family: 'Nobile', sans-serif;
-  font-size: 0.7vw;
+  font-size: 0.85vw;
   font-weight: 500;
 }
 
@@ -81,6 +80,12 @@
   background-image: url('./images/full-screen-black.svg');
   width: 17px;
 }
+
+.react-video-controls .add-marker {
+  background-image: url('./images/add-marker.svg');
+  width: 15px;
+}
+
 
 .react-video-controls .time {
   color: #969696;

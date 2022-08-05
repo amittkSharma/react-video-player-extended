@@ -3,6 +3,19 @@ import VideoPlayer from '../src/index'
 import './styles.css'
 
 function App() {
+  const markersSample = [
+    {
+      id: 1,
+      time: 5,
+      title: 'Marker 1',
+    },
+    {
+      id: 2,
+      time: 10,
+      title: 'Marker 2',
+    },
+  ]
+
   const [url] = useState('https://media.w3.org/2010/05/bunny/trailer.mp4')
   const [controls, setControls] = useState(['Play', 'Time', 'Progress', 'Volume', 'FullScreen'])
   const [settings, setSettings] = useState(['Title'])
@@ -11,6 +24,7 @@ function App() {
   const [timeStart] = useState(5)
   const [fps] = useState(10)
   const [selectedMarker, setSelectedMarker] = useState(undefined)
+  const [markers, setMarkers] = useState(markersSample)
 
   const controlsList = [
     {
@@ -41,6 +55,10 @@ function App() {
       id: 'LastFrame',
       title: 'Last Frame',
     },
+    {
+      id: 'AddMarker',
+      title: 'Add Marker',
+    },
   ]
 
   const settingsList = [
@@ -63,6 +81,10 @@ function App() {
     {
       id: 'StartTime',
       title: 'Start Time',
+    },
+    {
+      id: 'MarkersCount',
+      title: 'Markers Count',
     },
   ]
 
@@ -112,18 +134,11 @@ function App() {
     setSelectedMarker(marker)
   }
 
-  const markers = [
-    {
-      id: 1,
-      time: 5,
-      title: 'Marker 1',
-    },
-    {
-      id: 2,
-      time: 10,
-      title: 'Marker 2',
-    },
-  ]
+  const handleMarkerAdd = (marker) => {
+    const updatedMarkers = markers.map((m) => m)
+    updatedMarkers.push(marker)
+    setMarkers(updatedMarkers)
+  }
 
   return (
     <div className="container">
@@ -146,6 +161,7 @@ function App() {
         onProgress={handleProgress}
         onDuration={handleDuration}
         onMarkerClick={handleMarkerClick}
+        onMarkerAdded={handleMarkerAdd}
         fps={fps}
         selectedMarker={selectedMarker}
         viewSettings={settings}

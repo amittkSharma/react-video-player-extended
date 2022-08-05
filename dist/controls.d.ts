@@ -19,6 +19,7 @@ interface Props {
     onMarkerClick: (marker: Marker) => void;
     onNextFrameClick: () => void;
     onLastFrameClick: () => void;
+    onAddMarkerClick: () => void;
     selectedMarker?: Marker;
     markerConfiguration?: MarkerConfiguration;
 }

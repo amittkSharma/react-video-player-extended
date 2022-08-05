@@ -7,6 +7,7 @@ enum SettingsSelection {
   Repeat = 'Repeat',
   StartTime = 'StartTime',
   Volume = 'Volume',
+  MarkersCount = 'MarkersCount',
 }
 
 interface Props {
@@ -15,6 +16,7 @@ interface Props {
   loop: boolean
   timeStart: number
   volume: number
+  markersCount: number
   viewSettings?: string[]
 }
 
@@ -24,6 +26,7 @@ export const SettingsViewer: React.SFC<Props> = ({
   loop,
   timeStart,
   volume,
+  markersCount,
   viewSettings,
 }: Props) => {
   return (
@@ -42,6 +45,9 @@ export const SettingsViewer: React.SFC<Props> = ({
       )}
       {viewSettings.indexOf(SettingsSelection.Volume.toString()) !== -1 && (
         <p className="text-col">{`Volume: ${volume}`}</p>
+      )}
+      {viewSettings.indexOf(SettingsSelection.MarkersCount.toString()) !== -1 && (
+        <p className="text-col">{`Markers: ${markersCount}`}</p>
       )}
     </div>
   )
