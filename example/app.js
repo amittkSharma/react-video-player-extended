@@ -16,13 +16,13 @@ function App() {
     },
   ]
 
-  const [url] = useState('https://media.w3.org/2010/05/bunny/trailer.mp4')
+  const [url] = useState('https://media.w3.org/2010/05/sintel/trailer.mp4')
   const [controls, setControls] = useState(['Play', 'Time', 'Progress', 'Volume', 'FullScreen'])
   const [settings, setSettings] = useState(['Title'])
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(0.7)
   const [timeStart] = useState(5)
-  const [fps] = useState(10)
+  const [fps] = useState(30)
   const [selectedMarker, setSelectedMarker] = useState(undefined)
   const [markers, setMarkers] = useState(markersSample)
 
@@ -154,7 +154,7 @@ function App() {
         controls={controls}
         isPlaying={isPlaying}
         volume={volume}
-        loop={true}
+        loop={false}
         markers={markers}
         height={'auto'}
         width={'640px'}
@@ -166,6 +166,7 @@ function App() {
         onDuration={handleDuration}
         onMarkerClick={handleMarkerClick}
         onMarkerAdded={handleMarkerAdd}
+        onVideoPlayingComplete={(props) => setIsPlaying(false)}
         fps={fps}
         selectedMarker={selectedMarker}
         viewSettings={settings}
