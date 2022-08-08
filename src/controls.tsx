@@ -34,6 +34,7 @@ interface Props {
   onNextFrameClick: () => void
   onLastFrameClick: () => void
   onAddMarkerClick: () => void
+  onMarkerImported: (markers: Marker[]) => void
   selectedMarker?: Marker
   markerConfiguration?: MarkerConfiguration
 }
@@ -85,6 +86,7 @@ export class Controls extends React.Component<Props, never> {
       onNextFrameClick,
       onLastFrameClick,
       onAddMarkerClick,
+      onMarkerImported,
       selectedMarker,
       markerConfiguration,
     } = this.props
@@ -92,6 +94,26 @@ export class Controls extends React.Component<Props, never> {
     const durationTimeCode = this.getTimeCode(Math.ceil(duration))
     const currentTimeCode =
       currentTime !== duration ? this.getTimeCode(currentTime) : durationTimeCode
+
+    const onChangeFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (e.target.files && e.target.files[0]) {
+        const updatedJSON = e.target.files[0]
+        if (updatedJSON.type === 'application/json') {
+          const fileReader = new FileReader()
+          fileReader.readAsText(e.target.files[0])
+          fileReader.onload = (ev: ProgressEvent<FileReader>) => {
+            const target = ev.target
+            if (target) {
+              const result: Marker[] = JSON.parse(target.result as any)
+              // const resultObject: Marker[] = JSON.parse(JSON.stringify(result, null, 2))
+              onMarkerImported(result)
+            } else {
+              console.error(`Unable to read the uploaded file`)
+            }
+          }
+        }
+      }
+    }
 
     return (
       <div className="react-video-controls">
@@ -171,6 +193,13 @@ export class Controls extends React.Component<Props, never> {
             FullScreen
           </button>
         )}
+        <input
+          className="import-markers"
+          type="file"
+          id="input_json"
+          accept=".json"
+          onChange={onChangeFile}
+        />
       </div>
     )
   }

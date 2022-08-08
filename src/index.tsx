@@ -306,6 +306,9 @@ function VideoPlayer(props: Props) {
           onNextFrameClick={handleNextFrameClick}
           onLastFrameClick={handleLastFrameClick}
           onAddMarkerClick={handleAddMarkerClick}
+          onMarkerImported={(importedMarkers: Marker[]) =>
+            console.log(`Imported Markers: ${JSON.stringify(importedMarkers)}`)
+          }
           selectedMarker={selectedMarker}
           markerConfiguration={markerConfiguration}
         />
