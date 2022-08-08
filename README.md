@@ -100,4 +100,4 @@ onDuration | Callback contains `duration` of the media, in seconds
 onMarkerClick | Called when marked is clicked. Callback contains marker object. Example: `{id: 1, time: 5, color: '#ffc837', title: 'Marker 1'}`
 onMarkerAdded | Callback when a new marker is being added, this API will return a new marker object with current time. | 8.0.0
 onLoadedMetadata| Callback is triggered when the video player is loaded with new video, with all the meta-information
-onVideoPlayingComplete| Callback triggered when the video is completely played contains progressProps object. `Example: {"currentTime":52.209,"duration":52.209,"percentage":100}`. <b>Note:</b> This event will not be triggered in case video is being played in loop. | 8.2.0
+onVideoPlayingComplete| Callback triggered when the video is completely played contains progressProps object. `Example: {"currentTime":52.209,"duration":52.209,"percentage":100}`. <b>Note:</b> This event will not be triggered in case video is being played in loop. | 8.3.0

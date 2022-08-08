@@ -27,7 +27,7 @@ interface Props {
     onMarkerClick?: (marker: Marker) => void;
     onMarkerAdded?: (marker: Marker) => void;
     onLoadedMetadata?: (event: React.SyntheticEvent<HTMLVideoElement, Event>) => void;
-    onVideoPlayingComplete: (props: ProgressProps) => void;
+    onVideoPlayingComplete?: (props: ProgressProps) => void;
     selectedMarker?: Marker;
     viewSettings?: SettingsSelection[];
     markerConfiguration?: MarkerConfiguration;

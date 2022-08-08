@@ -40,6 +40,7 @@ interface Props {
   onMarkerClick?: (marker: Marker) => void
   onMarkerAdded?: (marker: Marker) => void
   onLoadedMetadata?: (event: React.SyntheticEvent<HTMLVideoElement, Event>) => void
+  onVideoPlayingComplete?: (props: ProgressProps) => void
   selectedMarker?: Marker
   viewSettings?: SettingsSelection[]
   markerConfiguration?: MarkerConfiguration
@@ -80,6 +81,7 @@ function VideoPlayer(props: Props) {
     // tslint:disable-next-line: no-empty
     onMarkerClick = () => {},
     onMarkerAdded,
+    onVideoPlayingComplete,
     // tslint:disable-next-line: no-empty
     onLoadedMetadata = () => {},
     selectedMarker,
@@ -152,6 +154,19 @@ function VideoPlayer(props: Props) {
       percentage,
     }
     onProgress(e, progressProps)
+  }
+
+  const onHandleVideoEnded = () => {
+    const progressProps: ProgressProps = {
+      currentTime,
+      duration: videoDuration,
+      percentage: 100,
+    }
+    if (onVideoPlayingComplete) {
+      onVideoPlayingComplete(progressProps)
+    } else {
+      console.warn(`No onVideoPlayingComplete function is implemented`)
+    }
   }
 
   const handleProgressClick = (e: React.MouseEvent<HTMLProgressElement, MouseEvent>) => {
@@ -266,6 +281,7 @@ function VideoPlayer(props: Props) {
         loop={loop}
         onClick={handlePlayerClick}
         onLoadedMetadata={onLoadedMetadata}
+        onEnded={onHandleVideoEnded}
       >
         <source src={url} type="video/mp4" />
       </video>
