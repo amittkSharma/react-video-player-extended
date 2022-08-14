@@ -67,5 +67,8 @@
     "build-prod": "webpack --config webpack.prod.config.js",
     "lint": "tslint -p .",
     "build-package": "npm run lint && npm run build-example && npm run build-prod"
+  },
+  "dependencies": {
+    "joi": "^17.6.0"
   }
 }

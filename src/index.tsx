@@ -87,6 +87,8 @@ function VideoPlayer(props: Props) {
     markerConfiguration,
   } = props
 
+  const [allMarkers, setAllMarkers] = useState<Marker[]>(markers)
+
   useEffect(() => {
     seekToPlayer()
   }, [timeStart])
@@ -235,6 +237,9 @@ function VideoPlayer(props: Props) {
       time: currentTime,
       title: `newMarker_${id}`,
     }
+    const m = allMarkers.map((x) => x)
+    m.push(newMarker)
+    setAllMarkers(m)
     onMarkerAdded(newMarker)
   }
 
@@ -276,7 +281,7 @@ function VideoPlayer(props: Props) {
           timeStart={timeStart}
           volume={volume}
           loop={loop}
-          markersCount={markers.length}
+          markersCount={allMarkers.length}
           viewSettings={viewSettings}
         />
       )}
@@ -295,7 +300,7 @@ function VideoPlayer(props: Props) {
           currentTime={currentTime}
           duration={videoDuration}
           muted={muted}
-          markers={markers}
+          markers={allMarkers}
           onPlayClick={onPlay}
           onPauseClick={onPause}
           onProgressClick={handleProgressClick}
@@ -306,9 +311,10 @@ function VideoPlayer(props: Props) {
           onNextFrameClick={handleNextFrameClick}
           onLastFrameClick={handleLastFrameClick}
           onAddMarkerClick={handleAddMarkerClick}
-          onMarkerImported={(importedMarkers: Marker[]) =>
-            console.log(`Imported Markers: ${JSON.stringify(importedMarkers)}`)
-          }
+          onMarkerImported={(importedMarkers: Marker[]) => {
+            const completeMarkers = allMarkers.slice().concat(importedMarkers)
+            setAllMarkers(completeMarkers)
+          }}
           selectedMarker={selectedMarker}
           markerConfiguration={markerConfiguration}
         />
