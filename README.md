@@ -72,6 +72,9 @@ class App extends Component {
 - Export markers as JSON file.
 - Importing markers from JSON file.
 
+![alt text](./video_sample/react_video_player_extended.png?raw=true)
+
+
 ### Props
 
 Prop | Description | Default
