@@ -1,6 +1,6 @@
 {
   "name": "react-video-player-extended",
-  "version": "8.3.0",
+  "version": "9.0.0",
   "description": "React HTML5 video providing functionality for marking and selecting frames, jumping back and forth between frames based on the fps.",
   "author": "Amitt K Sharma",
   "license": "MIT",
@@ -67,5 +67,8 @@
     "build-prod": "webpack --config webpack.prod.config.js",
     "lint": "tslint -p .",
     "build-package": "npm run lint && npm run build-example && npm run build-prod"
+  },
+  "dependencies": {
+    "joi": "^17.6.0"
   }
 }

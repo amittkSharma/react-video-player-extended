@@ -70,6 +70,7 @@ class App extends Component {
 - Jumping back and forth between frames based on FPS (default fps value is 30)
 - Display various settings associated with the video player such as title, fps, volume, repeat, start time
 - Export markers as JSON file.
+- Importing markers from JSON file.
 
 ### Props
 

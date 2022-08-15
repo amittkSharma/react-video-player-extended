@@ -5,6 +5,7 @@
 
 .overlay-desc .text-col {
   font-family: 'Nobile', sans-serif;
+  color:#ffffff;
   font-size: 0.85vw;
   font-weight: 500;
 }
@@ -14,7 +15,6 @@
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
   display: flex;
   align-items: flex-start;
@@ -92,6 +92,13 @@
   margin-top: 8px;
   width: 17px;
 }
+
+.react-video-controls .import-markers {
+  background-position-x: 0;
+  margin-top: 8px;
+  width: 180px;
+}
+
 
 .react-video-controls .time {
   color: #969696;

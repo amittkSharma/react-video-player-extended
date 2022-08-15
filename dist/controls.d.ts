@@ -20,10 +20,15 @@ interface Props {
     onNextFrameClick: () => void;
     onLastFrameClick: () => void;
     onAddMarkerClick: () => void;
+    onMarkerImported: (markers: Marker[]) => void;
     selectedMarker?: Marker;
     markerConfiguration?: MarkerConfiguration;
 }
-export declare class Controls extends React.Component<Props, never> {
+interface State {
+    error?: string;
+}
+export declare class Controls extends React.Component<Props, State> {
+    constructor(props: Props);
     getTimeCode: (secs: number) => string;
     handleOnMarkerSelection: (selectedMarker: Marker) => void;
     render(): JSX.Element;
