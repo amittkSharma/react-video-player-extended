@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### [v8.1.0](https://github.com/amittkSharma/react-video-player-extended/compare/v8.1.0...v8.1.0)
+#### [v8.3.0](https://github.com/amittkSharma/react-video-player-extended/compare/v8.3.0...v8.3.0)
+
+- fix: The onVideoPlayingComplete API [`#25`](https://github.com/amittkSharma/react-video-player-extended/pull/25)
+
+#### [v8.3.0](https://github.com/amittkSharma/react-video-player-extended/compare/v8.1.0...v8.3.0)
+
+> 8 August 2022
+
+- feat: Trigger event when the video play is complete [`#24`](https://github.com/amittkSharma/react-video-player-extended/pull/24)
+- chore: Added the updated changelog v8.1.0 [`d9d4ca5`](https://github.com/amittkSharma/react-video-player-extended/commit/d9d4ca5de3241d83fb287bf66b1f921ee933e4ac)
+- fix: The onVideoPlayingComplete API [`c7fada1`](https://github.com/amittkSharma/react-video-player-extended/commit/c7fada1d5be51a412bb7da3b57c39ec2ff22128d)
 
 #### [v8.1.0](https://github.com/amittkSharma/react-video-player-extended/compare/v8.0.0...v8.1.0)
 
