@@ -1,0 +1,36 @@
+import * as React from 'react';
+import { Marker, MarkerConfiguration } from './marker';
+interface Props {
+    progressEl: React.MutableRefObject<HTMLProgressElement>;
+    volumeEl: React.MutableRefObject<HTMLProgressElement>;
+    controls: string[];
+    isPlaying: boolean;
+    volume: number;
+    muted: boolean;
+    currentTime: number;
+    duration: number;
+    markers: Marker[];
+    onPlayClick: () => void;
+    onPauseClick: () => void;
+    onProgressClick: (event: React.MouseEvent<HTMLProgressElement, MouseEvent>) => void;
+    onVolumeClick: (event: React.MouseEvent<HTMLProgressElement, MouseEvent>) => void;
+    onMuteClick: () => void;
+    onFullScreenClick: () => void;
+    onMarkerClick: (marker: Marker) => void;
+    onNextFrameClick: () => void;
+    onLastFrameClick: () => void;
+    onAddMarkerClick: () => void;
+    onMarkerImported: (markers: Marker[]) => void;
+    selectedMarker?: Marker;
+    markerConfiguration?: MarkerConfiguration;
+}
+interface State {
+    error?: string;
+}
+export declare class Controls extends React.Component<Props, State> {
+    constructor(props: Props);
+    getTimeCode: (secs: number) => string;
+    handleOnMarkerSelection: (selectedMarker: Marker) => void;
+    render(): JSX.Element;
+}
+export {};
