@@ -2,9 +2,21 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### [v8.3.0](https://github.com/amittkSharma/react-video-player-extended/compare/v8.3.0...v8.3.0)
+#### [v9.0.0](https://github.com/amittkSharma/react-video-player-extended/compare/v9.0.0...v9.0.0)
 
+### [v9.0.0](https://github.com/amittkSharma/react-video-player-extended/compare/v8.3.0...v9.0.0)
+
+> 15 August 2022
+
+- Feature import markers from a JSON file [`#26`](https://github.com/amittkSharma/react-video-player-extended/pull/26)
 - fix: The onVideoPlayingComplete API [`#25`](https://github.com/amittkSharma/react-video-player-extended/pull/25)
+- feat: WIP: Import markers [`64e0f43`](https://github.com/amittkSharma/react-video-player-extended/commit/64e0f4356808589c818f29c5f3b6ae0595e8b235)
+- chore: Added an updated changelog for the version v8.3.0 [`7f6ab48`](https://github.com/amittkSharma/react-video-player-extended/commit/7f6ab48600437e42ab03015efbad7ac0bab151a0)
+- feat: Implement the error viewer for the markers import [`7add5ee`](https://github.com/amittkSharma/react-video-player-extended/commit/7add5ee3e425673b2ebb174a7b4b746065617cbc)
+- feat: build the package [`a26deb9`](https://github.com/amittkSharma/react-video-player-extended/commit/a26deb964c08a233496924054e632485d6ea920e)
+- chore: delete dist folder [`055891e`](https://github.com/amittkSharma/react-video-player-extended/commit/055891ec9f2b78164bc0ab1325373f97912edda9)
+- chore: Updated dist folder [`c9bd22c`](https://github.com/amittkSharma/react-video-player-extended/commit/c9bd22cf48b6289d6854d01622bb42ff4f106357)
+- chore: Update the controls enum, readme and package version [`a9b888a`](https://github.com/amittkSharma/react-video-player-extended/commit/a9b888a4477ae09c7465cc0c2afd963345e495fe)
 
 #### [v8.3.0](https://github.com/amittkSharma/react-video-player-extended/compare/v8.1.0...v8.3.0)
 
