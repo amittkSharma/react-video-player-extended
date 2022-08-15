@@ -14,6 +14,7 @@ enum ControlsSelection {
   NextFrame = 'NextFrame',
   AddMarker = 'AddMarker',
   ExportMarkers = 'ExportMarkers',
+  ImportMarkers = 'ImportMarkers',
 }
 
 interface Props {
@@ -213,13 +214,15 @@ export class Controls extends React.Component<Props, State> {
               FullScreen
             </button>
           )}
-          <input
-            className="import-markers"
-            type="file"
-            id="input_json"
-            accept=".json"
-            onChange={onChangeFile}
-          />
+          {controls.indexOf(ControlsSelection.ImportMarkers.toString()) !== -1 && (
+            <input
+              className="import-markers"
+              type="file"
+              id="input_json"
+              accept=".json"
+              onChange={onChangeFile}
+            />
+          )}
         </div>
         {this.state.error && (
           <div
