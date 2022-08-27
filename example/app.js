@@ -153,6 +153,31 @@ function App() {
       <header className="main-header">
         <h1 className="app-name">React Video Player (Extended)</h1>
       </header>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around ',
+          marginBottom: 20,
+        }}
+      >
+        <img
+          alt="npm"
+          src="https://img.shields.io/npm/dt/react-video-player-extended?style=flat-square"
+        />
+        <img
+          alt="NPM"
+          src="https://img.shields.io/npm/l/react-video-player-extended?style=flat-square"
+        />
+        <img
+          alt="npm type definitions"
+          src="https://img.shields.io/npm/types/react-video-player-extended?style=flat-square"
+        />
+        <img
+          alt="npm"
+          src="https://img.shields.io/npm/v/react-video-player-extended?style=flat-square"
+        />
+      </div>
       <div className="container">
         <VideoPlayer
           url={url}
