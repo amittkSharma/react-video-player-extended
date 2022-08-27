@@ -6,6 +6,25 @@
   React Video Player (with Markers, Next, Last Frame jumps)
 </p>
 
+<div align='center'>
+  <img
+    alt="npm"
+    src="https://img.shields.io/npm/dt/react-video-player-extended?style=flat-square"
+  />
+  <img
+    alt="NPM"
+    src="https://img.shields.io/npm/l/react-video-player-extended?style=flat-square"
+  />
+  <img
+    alt="npm type definitions"
+    src="https://img.shields.io/npm/types/react-video-player-extended?style=flat-square"
+  />
+  <img
+    alt="npm"
+    src="https://img.shields.io/npm/v/react-video-player-extended?style=flat-square"
+  />
+</div>
+
 ### Introduction
 
 React-video-player-extended supports both development and general user requirements. In addition to the basic video player functionality, react-video-player-extended provides the functionality for marking and selecting frames, jumping back and forth between frames based on the fps.
@@ -71,6 +90,9 @@ class App extends Component {
 - Display various settings associated with the video player such as title, fps, volume, repeat, start time
 - Export markers as JSON file.
 - Importing markers from JSON file.
+
+![alt text](./video_sample/react_video_player_extended.png?raw=true)
+
 
 ### Props
 
