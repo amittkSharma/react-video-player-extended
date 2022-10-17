@@ -23,6 +23,10 @@
     alt="npm"
     src="https://img.shields.io/npm/v/react-video-player-extended?style=flat-square"
   />
+  <a href="https://www.buymeacoffee.com/ash12raig">
+    <img src="https://i0.hippopx.com/photos/721/955/776/coffee-computer-coffee-design-laptop-preview.jpg" width=150" height="70" />
+  </a>
+  
 </div>
 
 ### Introduction
