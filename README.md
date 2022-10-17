@@ -23,10 +23,6 @@
     alt="npm"
     src="https://img.shields.io/npm/v/react-video-player-extended?style=flat-square"
   />
-  <a href="https://www.buymeacoffee.com/ash12raig">
-    :coffee:
-  </a>
-  
 </div>
 
 ### Introduction
@@ -128,3 +124,12 @@ onMarkerClick | Called when marked is clicked. Callback contains marker object. 
 onMarkerAdded | Callback when a new marker is being added, this API will return a new marker object with current time. | 8.0.0
 onLoadedMetadata| Callback is triggered when the video player is loaded with new video, with all the meta-information
 onVideoPlayingComplete| Callback triggered when the video is completely played contains progressProps object. `Example: {"currentTime":52.209,"duration":52.209,"percentage":100}`. <b>Note:</b> This event will not be triggered in case video is being played in loop. | 8.3.0
+
+
+##### Donation
+
+Let's sit together and contribute towards further enhancements <a href="https://www.buymeacoffee.com/ash12raig">
+Buy me a coffee :coffee:</a>
+
+
+
