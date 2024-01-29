@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Controls } from './controls'
+import { getMarker } from './get-marker'
 import { Marker, MarkerConfiguration } from './marker'
 import { SettingsViewer } from './settings-viewer'
 import './styles.css'
@@ -41,6 +42,7 @@ interface Props {
   onMarkerAdded?: (marker: Marker) => void
   onLoadedMetadata?: (event: React.SyntheticEvent<HTMLVideoElement, Event>) => void
   onVideoPlayingComplete?: (props: ProgressProps) => void
+  onContinuousMarkerReceived?: (marker: Marker) => void
   selectedMarker?: Marker
   viewSettings?: SettingsSelection[]
   markerConfiguration?: MarkerConfiguration
@@ -84,6 +86,7 @@ function VideoPlayer(props: Props) {
     onVideoPlayingComplete,
     // tslint:disable-next-line: no-empty
     onLoadedMetadata = () => {},
+    onContinuousMarkerReceived,
     selectedMarker,
     viewSettings,
     markerConfiguration,
@@ -148,6 +151,9 @@ function VideoPlayer(props: Props) {
       }
       if (currentTime === duration) {
         onPause()
+      }
+      if (onContinuousMarkerReceived) {
+        handleContinuousMarker(currentTime)
       }
     }
     const progressProps: ProgressProps = {
@@ -245,16 +251,15 @@ function VideoPlayer(props: Props) {
     playerEl.current.currentTime = Math.max(0, playerEl.current.currentTime - frameTime)
   }
 
+  const handleContinuousMarker = (pCurrentTime: number) => {
+    const newMarker: Marker = getMarker(pCurrentTime)
+    onContinuousMarkerReceived(newMarker)
+  }
+
   const handleAddMarkerClick = () => {
-    const id = Math.round(Math.random() * 1000)
-    const newMarker: Marker = {
-      id,
-      time: currentTime,
-      title: `newMarker_${id}`,
-    }
-    const m = allMarkers.map((x) => x)
-    m.push(newMarker)
-    setAllMarkers(m)
+    const newMarker: Marker = getMarker(currentTime)
+    allMarkers.push(newMarker)
+    setAllMarkers(allMarkers)
     onMarkerAdded(newMarker)
   }
 
