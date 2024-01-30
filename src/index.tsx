@@ -48,6 +48,17 @@ interface Props {
   markerConfiguration?: MarkerConfiguration
 }
 
+declare global {
+  interface Document {
+    mozCancelFullScreen?: () => Promise<void>
+    msExitFullscreen?: () => Promise<void>
+    webkitExitFullscreen?: () => Promise<void>
+    mozFullScreenElement?: Element
+    msFullscreenElement?: Element
+    webkitFullscreenElement?: Element
+  }
+}
+
 const DEFAULT_VOLUME: number = 0.7
 
 function VideoPlayer(props: Props) {
@@ -125,8 +136,8 @@ function VideoPlayer(props: Props) {
     }
   }
 
-  const handleDurationLoaded = (e: Event) => {
-    let duration = e.currentTarget['duration']
+  const handleDurationLoaded = (e: any) => {
+    let duration: number = e.currentTarget['duration']
     if (duration === Infinity) {
       duration = 0
     }
@@ -134,7 +145,7 @@ function VideoPlayer(props: Props) {
     onDuration(duration)
   }
 
-  const handleProgress = (e: Event) => {
+  const handleProgress = (e: any) => {
     const { currentTarget } = e
     // tslint:disable-next-line: no-shadowed-variable
     const currentTime = currentTarget['currentTime']
@@ -206,7 +217,7 @@ function VideoPlayer(props: Props) {
   }
 
   const handleFullScreenClick = () => {
-    const videoWrap = document.getElementsByClassName('react-video-wrap')[0]
+    const videoWrap: any = document.getElementsByClassName('react-video-wrap')[0]
     if (isFullScreen) {
       document.body.classList.remove('react-video-full-screen')
       if (document['exitFullscreen']) {
