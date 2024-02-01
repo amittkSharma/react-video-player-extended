@@ -25,6 +25,7 @@ function App() {
   const [fps] = useState(30)
   const [selectedMarker, setSelectedMarker] = useState(undefined)
   const [markers, setMarkers] = useState(markersSample)
+  const [continuousMarker, setContinuousMarker] = useState(undefined)
 
   const controlsList = [
     {
@@ -148,6 +149,10 @@ function App() {
     setMarkers(updatedMarkers)
   }
 
+  const handleContinuousMarkerReceived = (marker) => {
+    setContinuousMarker(marker)
+  }
+
   return (
     <>
       <header className="main-header">
@@ -197,6 +202,7 @@ function App() {
           onMarkerClick={handleMarkerClick}
           onMarkerAdded={handleMarkerAdd}
           onVideoPlayingComplete={(props) => setIsPlaying(false)}
+          onContinuousMarkerReceived={handleContinuousMarkerReceived}
           fps={fps}
           selectedMarker={selectedMarker}
           viewSettings={settings}
@@ -251,6 +257,9 @@ function App() {
             {selectedMarker === undefined
               ? 'No Marker is Selected'
               : JSON.stringify(selectedMarker, null, 2)}
+            <span style={{ height: 5 }}></span>
+            Continuous Marker:
+            {continuousMarker ? JSON.stringify(continuousMarker, null, 2) : 'No Continuous Marker'}
           </em>
         </div>
       </div>

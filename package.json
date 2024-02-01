@@ -1,6 +1,6 @@
 {
   "name": "react-video-player-extended",
-  "version": "9.0.0",
+  "version": "9.1.0",
   "description": "React HTML5 video providing functionality for marking and selecting frames, jumping back and forth between frames based on the fps.",
   "author": "Amitt K Sharma",
   "license": "MIT",
@@ -45,6 +45,7 @@
     "babel": "6.23.0",
     "babel-loader": "8.0.6",
     "css-loader": "3.2.0",
+    "node": "16.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-hot-loader": "4.12.15",
