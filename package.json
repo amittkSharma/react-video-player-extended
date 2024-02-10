@@ -61,7 +61,7 @@
     "url-loader": "2.2.0",
     "webpack": "4.41.2",
     "webpack-cli": "3.3.9",
-    "webpack-dev-server": "3.8.2"
+    "webpack-dev-server": "4.15.1"
   },
   "scripts": {
     "start": "node server.js",
