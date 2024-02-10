@@ -44,6 +44,7 @@
     "@types/react-dom": "16.9.6",
     "babel": "6.23.0",
     "babel-loader": "8.0.6",
+    "commit-and-tag-version": "^12.2.0",
     "css-loader": "3.2.0",
     "node": "16.0.0",
     "react": "16.13.1",
@@ -56,7 +57,7 @@
     "tslint": "6.1.3",
     "tslint-checker": "5.2.0",
     "tslint-react": "5.0.0",
-    "typescript": "3.7.5",
+    "typescript": "^4.1.3",
     "url-loader": "2.2.0",
     "webpack": "4.41.2",
     "webpack-cli": "3.3.9",
@@ -67,9 +68,33 @@
     "build-example": "webpack",
     "build-prod": "webpack --config webpack.prod.config.js",
     "lint": "tslint -p .",
-    "build-package": "npm run lint && npm run build-example && npm run build-prod"
+    "build-package": "npm run lint && npm run build-example && npm run build-prod",
+    "release": "commit-and-tag-version"
   },
   "dependencies": {
     "joi": "^17.6.0"
+  },
+  "commit-and-tag-version": {
+    "noVerify": false,
+    "silent": false,
+    "writerOpts": {
+      "commitsSort": true
+    },
+    "skip": {
+      "changelog": false,
+      "bump": false,
+      "commit": false,
+      "tag": false
+    },
+    "scripts": {
+      "prerelease": "echo 9.9.9 prerelease",
+      "prebump": "echo 9.9.9 prebump",
+      "postbump": "echo 9.9.9 postbump",
+      "prechangelog": "echo 9.9.9 prechangelog",
+      "postchangelog": "echo 9.9.9 postchangelog",
+      "postcommit": "echo 9.9.9 postcommit",
+      "pretag": "echo 9.9.9 pretag",
+      "posttag": "echo 9.9.9 posttag"
+    }
   }
 }

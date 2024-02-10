@@ -291,7 +291,7 @@ function VideoPlayer(props: Props) {
         instance.removeEventListener('durationchange', handleDurationLoaded)
       }
     }
-  }, [])
+  }, [url])
 
   return (
     <div className="react-video-wrap" style={{ height, width }}>
