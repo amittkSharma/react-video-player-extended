@@ -73,28 +73,5 @@
   },
   "dependencies": {
     "joi": "^17.6.0"
-  },
-  "commit-and-tag-version": {
-    "noVerify": false,
-    "silent": false,
-    "writerOpts": {
-      "commitsSort": true
-    },
-    "skip": {
-      "changelog": false,
-      "bump": false,
-      "commit": false,
-      "tag": false
-    },
-    "scripts": {
-      "prerelease": "echo 9.9.9 prerelease",
-      "prebump": "echo 9.9.9 prebump",
-      "postbump": "echo 9.9.9 postbump",
-      "prechangelog": "echo 9.9.9 prechangelog",
-      "postchangelog": "echo 9.9.9 postchangelog",
-      "postcommit": "echo 9.9.9 postcommit",
-      "pretag": "echo 9.9.9 pretag",
-      "posttag": "echo 9.9.9 posttag"
-    }
   }
 }
