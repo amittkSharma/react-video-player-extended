@@ -90,6 +90,14 @@ export class Controls extends React.Component<Props, State> {
     onDeleteAllMarkers(markers)
   }
 
+  handleOnDeleteMarker = (): void => {
+    if (this.props.selectedMarker) {
+      this.props.onDeleteMarker(this.props.selectedMarker)
+    } else {
+      this.setState({ error: 'No Marker is selected' })
+    }
+  }
+
   render() {
     const {
       progressEl,
@@ -145,7 +153,7 @@ export class Controls extends React.Component<Props, State> {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
         <div className="react-video-controls">
           {controls.indexOf(ControlsSelection.LastFrame.toString()) !== -1 && (
             <button className="last-frame" onClick={onLastFrameClick}>
@@ -196,7 +204,7 @@ export class Controls extends React.Component<Props, State> {
             </div>
           )}
           {controls.indexOf(ControlsSelection.DeleteMarker.toString()) !== -1 && (
-            <button className="delete-marker" onClick={undefined}>
+            <button className="delete-marker" onClick={this.handleOnDeleteMarker}>
               Delete Marker
             </button>
           )}
@@ -247,6 +255,7 @@ export class Controls extends React.Component<Props, State> {
           <div
             style={{
               margin: 10,
+              color: 'red',
             }}
           >
             <em>Errors: {this.state.error}</em>
