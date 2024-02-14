@@ -59,6 +59,16 @@
   background-image: url('./images/play-black.svg');
 }
 
+.react-video-controls .delete-marker {
+  background-image: url('./images/delete-marker.svg');
+  margin-top: 11px;
+}
+
+.react-video-controls .delete-all-markers {
+  background-image: url('./images/delete-all-markers.svg');
+}
+
+
 .react-video-controls .pause {
   background-image: url('./images/pause-black.svg');
   background-size: 15px;
@@ -209,6 +219,15 @@
 
 .react-video-full-screen .react-video-controls .play {
   background-image: url('./images/play-white.svg');
+}
+
+.react-video-full-screen .react-video-controls .delete-marker {
+  background-image: url('./images/delete-marker.svg');
+}
+
+.react-video-full-screen .react-video-controls .delete-all-markers {
+  background-image: url('./images/delete-all-markers.svg');
+  margin-top: 11px;
 }
 
 .react-video-full-screen .react-video-controls .pause {

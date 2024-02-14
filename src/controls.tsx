@@ -15,6 +15,8 @@ enum ControlsSelection {
   AddMarker = 'AddMarker',
   ExportMarkers = 'ExportMarkers',
   ImportMarkers = 'ImportMarkers',
+  DeleteMarker = 'DeleteMarker',
+  DeleteAllMarkers = 'DeleteAllMarkers',
 }
 
 interface Props {
@@ -37,6 +39,8 @@ interface Props {
   onNextFrameClick: () => void
   onLastFrameClick: () => void
   onAddMarkerClick: () => void
+  onDeleteMarker: (marker: Marker) => void
+  onDeleteAllMarkers: (markers: Marker[]) => void
   onMarkerImported: (markers: Marker[]) => void
   selectedMarker?: Marker
   markerConfiguration?: MarkerConfiguration
@@ -79,6 +83,11 @@ export class Controls extends React.Component<Props, State> {
 
   handleOnMarkerSelection = (selectedMarker: Marker): void => {
     this.props.onMarkerClick(selectedMarker)
+  }
+
+  handleOnDeleteAllMarkers = (): void => {
+    const { onDeleteAllMarkers, markers } = this.props
+    onDeleteAllMarkers(markers)
   }
 
   render() {
@@ -185,6 +194,16 @@ export class Controls extends React.Component<Props, State> {
                   )
                 })}
             </div>
+          )}
+          {controls.indexOf(ControlsSelection.DeleteMarker.toString()) !== -1 && (
+            <button className="delete-marker" onClick={undefined}>
+              Delete Marker
+            </button>
+          )}
+          {controls.indexOf(ControlsSelection.DeleteAllMarkers.toString()) !== -1 && (
+            <button className="delete-all-markers" onClick={this.handleOnDeleteAllMarkers}>
+              Delete Markers
+            </button>
           )}
           {controls.indexOf(ControlsSelection.ExportMarkers.toString()) !== -1 && (
             <button
