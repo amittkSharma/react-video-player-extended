@@ -349,6 +349,13 @@ function VideoPlayer(props: Props) {
           }}
           selectedMarker={selectedMarker}
           markerConfiguration={markerConfiguration}
+          onDeleteAllMarkers={() => setAllMarkers([])}
+          onDeleteMarker={(markerToDelete: Marker) => {
+            const remainingMarkers = allMarkers.filter(
+              (m) => m.id !== markerToDelete.id && m.time !== markerToDelete.time,
+            )
+            setAllMarkers(remainingMarkers)
+          }}
         />
       ) : null}
     </div>

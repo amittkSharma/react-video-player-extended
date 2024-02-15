@@ -15,6 +15,8 @@ enum ControlsSelection {
   AddMarker = 'AddMarker',
   ExportMarkers = 'ExportMarkers',
   ImportMarkers = 'ImportMarkers',
+  DeleteMarker = 'DeleteMarker',
+  DeleteAllMarkers = 'DeleteAllMarkers',
 }
 
 interface Props {
@@ -37,6 +39,8 @@ interface Props {
   onNextFrameClick: () => void
   onLastFrameClick: () => void
   onAddMarkerClick: () => void
+  onDeleteMarker: (marker: Marker) => void
+  onDeleteAllMarkers: (markers: Marker[]) => void
   onMarkerImported: (markers: Marker[]) => void
   selectedMarker?: Marker
   markerConfiguration?: MarkerConfiguration
@@ -79,6 +83,19 @@ export class Controls extends React.Component<Props, State> {
 
   handleOnMarkerSelection = (selectedMarker: Marker): void => {
     this.props.onMarkerClick(selectedMarker)
+  }
+
+  handleOnDeleteAllMarkers = (): void => {
+    const { onDeleteAllMarkers, markers } = this.props
+    onDeleteAllMarkers(markers)
+  }
+
+  handleOnDeleteMarker = (): void => {
+    if (this.props.selectedMarker) {
+      this.props.onDeleteMarker(this.props.selectedMarker)
+    } else {
+      this.setState({ error: 'No Marker is selected' })
+    }
   }
 
   render() {
@@ -136,7 +153,7 @@ export class Controls extends React.Component<Props, State> {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
         <div className="react-video-controls">
           {controls.indexOf(ControlsSelection.LastFrame.toString()) !== -1 && (
             <button className="last-frame" onClick={onLastFrameClick}>
@@ -186,6 +203,16 @@ export class Controls extends React.Component<Props, State> {
                 })}
             </div>
           )}
+          {controls.indexOf(ControlsSelection.DeleteMarker.toString()) !== -1 && (
+            <button className="delete-marker" onClick={this.handleOnDeleteMarker}>
+              Delete Marker
+            </button>
+          )}
+          {controls.indexOf(ControlsSelection.DeleteAllMarkers.toString()) !== -1 && (
+            <button className="delete-all-markers" onClick={this.handleOnDeleteAllMarkers}>
+              Delete Markers
+            </button>
+          )}
           {controls.indexOf(ControlsSelection.ExportMarkers.toString()) !== -1 && (
             <button
               className="export-markers"
@@ -228,6 +255,7 @@ export class Controls extends React.Component<Props, State> {
           <div
             style={{
               margin: 10,
+              color: 'red',
             }}
           >
             <em>Errors: {this.state.error}</em>

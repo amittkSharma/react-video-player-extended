@@ -33,6 +33,14 @@ function App() {
       title: 'Play button',
     },
     {
+      id: 'DeleteMarker',
+      title: 'Delete Marker',
+    },
+    {
+      id: 'DeleteAllMarkers',
+      title: 'Delete All Markers',
+    },
+    {
       id: 'Time',
       title: 'Time',
     },
