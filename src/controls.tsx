@@ -1,5 +1,6 @@
 import { ValidationResult } from 'joi'
 import * as React from 'react'
+import { ErrorViewer } from './components'
 import { Marker, MarkerConfiguration, MarkerView } from './marker'
 import { markersValidationSchema } from './models'
 import { downloadAttachment } from './utils'
@@ -47,7 +48,7 @@ interface Props {
 }
 
 interface State {
-  error?: string
+  errors: string[]
 }
 
 export class Controls extends React.Component<Props, State> {
@@ -55,7 +56,7 @@ export class Controls extends React.Component<Props, State> {
     super(props)
 
     this.state = {
-      error: undefined,
+      errors: [],
     }
   }
 
@@ -94,7 +95,8 @@ export class Controls extends React.Component<Props, State> {
     if (this.props.selectedMarker) {
       this.props.onDeleteMarker(this.props.selectedMarker)
     } else {
-      this.setState({ error: 'No Marker is selected' })
+      const newErrors = this.state.errors.concat('No Marker is selected')
+      this.setState({ errors: newErrors })
     }
   }
 
@@ -139,9 +141,8 @@ export class Controls extends React.Component<Props, State> {
               const result: Marker[] = JSON.parse(target.result as any)
               const { error }: ValidationResult = markersValidationSchema.validate(result)
               if (error) {
-                this.setState({ error: error.details.map((m) => m.message).join(', ') })
+                this.setState({ errors: error.details.map((m) => m.message) })
               } else {
-                this.setState({ error: undefined })
                 onMarkerImported(result)
               }
             } else {
@@ -241,6 +242,12 @@ export class Controls extends React.Component<Props, State> {
               FullScreen
             </button>
           )}
+          {this.state.errors.length !== 0 && (
+            <ErrorViewer
+              errors={this.state.errors}
+              onClearError={() => this.setState({ errors: [] })}
+            />
+          )}
           {controls.indexOf(ControlsSelection.ImportMarkers.toString()) !== -1 && (
             <input
               className="import-markers"
@@ -251,16 +258,6 @@ export class Controls extends React.Component<Props, State> {
             />
           )}
         </div>
-        {this.state.error && (
-          <div
-            style={{
-              margin: 10,
-              color: 'red',
-            }}
-          >
-            <em>Errors: {this.state.error}</em>
-          </div>
-        )}
       </div>
     )
   }
