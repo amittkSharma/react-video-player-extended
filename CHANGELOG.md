@@ -1,5 +1,18 @@
 ### Changelog
 
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [9.2.0](https://github.com/amittkSharma/react-video-player-extended/compare/v9.1.0...v9.2.0) (2024-02-25)
+
+
+### Features
+
+* implement first version of error viewer ([4749096](https://github.com/amittkSharma/react-video-player-extended/commit/474909675c23f5688367561e2ccd0a2de2d0f85a))
+* added the functionality for delete single and all markers ([3ac892a](https://github.com/amittkSharma/react-video-player-extended/commit/3ac892afa7d63babeb63cca0c80d1f7eb08fbb71))
+* implement the initial structure for deleting single or all markers ([2565364](https://github.com/amittkSharma/react-video-player-extended/commit/2565364f9cd7a6eeb2bb50ddcda9a33260772d55))
+
+### Changelog
+
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
 #### [v9.0.0](https://github.com/amittkSharma/react-video-player-extended/compare/v9.0.0...v9.0.0)
