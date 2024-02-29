@@ -105,8 +105,9 @@
 
 .react-video-controls .import-markers {
   background-position-x: 0;
-  margin-top: 8px;
-  width: 180px;
+  margin-top: 10px;
+  width: 105px;
+  font-size:smaller;
 }
 
 

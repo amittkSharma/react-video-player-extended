@@ -249,13 +249,19 @@ export class Controls extends React.Component<Props, State> {
             />
           )}
           {controls.indexOf(ControlsSelection.ImportMarkers.toString()) !== -1 && (
-            <input
-              className="import-markers"
-              type="file"
-              id="input_json"
-              accept=".json"
-              onChange={onChangeFile}
-            />
+            <div className="import-markers">
+              <label htmlFor="input_json">Import Markers</label>
+              <input
+                type="file"
+                id="input_json"
+                accept=".json"
+                style={{ visibility: 'hidden' }}
+                onChange={onChangeFile}
+                onClick={(event) => {
+                  event.currentTarget.value = null
+                }}
+              />
+            </div>
           )}
         </div>
       </div>
