@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [9.2.1](https://github.com/amittkSharma/react-video-player-extended/compare/v9.2.0...v9.2.1) (2024-02-29)
+
+
+### Bug Fixes
+
+* resolve the full screen exit issue using esc key ([8999481](https://github.com/amittkSharma/react-video-player-extended/commit/89994815c2aab2b33dd0650d43b38f22ed9c96cb))
+
 ## [9.2.0](https://github.com/amittkSharma/react-video-player-extended/compare/v9.1.0...v9.2.0) (2024-02-25)
 
 
