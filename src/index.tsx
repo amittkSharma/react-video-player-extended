@@ -220,9 +220,7 @@ function VideoPlayer(props: Props) {
     const videoWrap: any = document.getElementsByClassName('react-video-wrap')[0]
     if (isFullScreen) {
       document.body.classList.remove('react-video-full-screen')
-      if (document['exitFullscreen']) {
-        document['exitFullscreen']()
-      } else if (document['mozCancelFullScreen']) {
+      if (document['mozCancelFullScreen']) {
         document['mozCancelFullScreen']()
       } else if (document['webkitExitFullscreen']) {
         document['webkitExitFullscreen']()
@@ -278,6 +276,13 @@ function VideoPlayer(props: Props) {
     const instance = playerEl.current
     instance.addEventListener('timeupdate', handleProgress)
     instance.addEventListener('durationchange', handleDurationLoaded)
+
+    document.addEventListener('fullscreenchange', () => {
+      if (isFullScreen && document.fullscreenElement === null) {
+        handleFullScreenClick()
+      }
+    })
+
     if (timeStart) {
       seekToPlayer()
     }
@@ -291,7 +296,7 @@ function VideoPlayer(props: Props) {
         instance.removeEventListener('durationchange', handleDurationLoaded)
       }
     }
-  }, [url])
+  }, [url, isFullScreen])
 
   return (
     <div className="react-video-wrap" style={{ height, width }}>
