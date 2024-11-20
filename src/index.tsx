@@ -188,14 +188,18 @@ function VideoPlayer(props: Props) {
     }
   }
 
-  const handleProgressClick = (e: React.MouseEvent<HTMLProgressElement, MouseEvent>) => {
+  const handleProgressClick = (
+    e: React.MouseEvent<HTMLProgressElement, MouseEvent | PointerEvent>,
+  ) => {
     const x =
       e['clientX'] - progressEl.current.getBoundingClientRect().left + document.body.scrollLeft
     const percentage = (x * progressEl.current.max) / progressEl.current.offsetWidth
     playerEl.current.currentTime = (percentage / 100) * playerEl.current.duration
   }
 
-  const handleVolumeClick = (e: React.MouseEvent<HTMLProgressElement, MouseEvent>) => {
+  const handleVolumeClick = (
+    e: React.MouseEvent<HTMLProgressElement, MouseEvent | PointerEvent>,
+  ) => {
     const y =
       volumeEl.current.offsetWidth -
       (e['clientY'] - volumeEl.current.getBoundingClientRect().top + document.body.scrollTop)

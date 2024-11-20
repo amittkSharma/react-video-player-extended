@@ -49,6 +49,7 @@ interface Props {
 
 interface State {
   errors: string[]
+  isMouseDown: boolean
 }
 
 export class Controls extends React.Component<Props, State> {
@@ -57,6 +58,7 @@ export class Controls extends React.Component<Props, State> {
 
     this.state = {
       errors: [],
+      isMouseDown: false,
     }
   }
 
@@ -186,7 +188,22 @@ export class Controls extends React.Component<Props, State> {
           )}
           {controls.indexOf(ControlsSelection.Progress.toString()) !== -1 && (
             <div className="progress-wrap">
-              <progress ref={progressEl} max="100" onClick={onProgressClick}>
+              <progress
+                ref={progressEl}
+                max="100"
+                onPointerDown={(e) => {
+                  this.setState({ isMouseDown: true })
+                  ;(e.target as HTMLDivElement).setPointerCapture(e.pointerId)
+                }}
+                onPointerUp={(e) => {
+                  this.setState({ isMouseDown: false })
+                  ;(e.target as HTMLDivElement).releasePointerCapture(e.pointerId)
+                }}
+                onPointerMove={(e) => {
+                  if (this.state.isMouseDown) return onProgressClick(e)
+                }}
+                onClick={onProgressClick}
+              >
                 0% played
               </progress>
               {markers &&
