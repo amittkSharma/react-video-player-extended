@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import VideoPlayer from '../src/index'
 import './styles.css'
 
@@ -17,6 +17,9 @@ function App() {
   ]
 
   const [url] = useState('https://media.w3.org/2010/05/sintel/trailer.mp4')
+  const [poster] = useState(
+    'https://placehold.co/640x360/EEE/333?text=Loading Video or Video Not Found',
+  )
   const [controls, setControls] = useState(['Play', 'Time', 'Progress', 'Volume', 'FullScreen'])
   const [settings, setSettings] = useState(['Title'])
   const [isPlaying, setIsPlaying] = useState(false)
@@ -202,6 +205,7 @@ function App() {
           height={'auto'}
           width={'640px'}
           timeStart={timeStart}
+          poster={poster}
           onPlay={handlePlay}
           onPause={handlePause}
           onVolume={handleVolume}
