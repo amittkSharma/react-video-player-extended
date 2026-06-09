@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [9.3.0](https://github.com/amittkSharma/react-video-player-extended/compare/v9.2.1...v9.3.0) (2026-06-09)
+
+
+### Features
+
+* adding poster functionality ([9abfade](https://github.com/amittkSharma/react-video-player-extended/commit/9abfade6b4188dbef7d24ec3556a5a77c0209228))
+* adding poster functionality ([bfa5625](https://github.com/amittkSharma/react-video-player-extended/commit/bfa5625f7ca125ac95bac5e66ba638507002b5aa))
+
+
+### Bug Fixes
+
+* example for the poster ([c694da6](https://github.com/amittkSharma/react-video-player-extended/commit/c694da60321df7fcb144c776181697b365124f15))
+* example for the usage of poster ([85424e2](https://github.com/amittkSharma/react-video-player-extended/commit/85424e2b8c3f94a901178ca2f0511e9756464bee))
+* import marker functionality to pick the same file and adjust the look and feel for the same ([2439337](https://github.com/amittkSharma/react-video-player-extended/commit/2439337ac1b3c9839b30c258a096daab63b2559d))
+
 ## [9.2.1](https://github.com/amittkSharma/react-video-player-extended/compare/v9.2.0...v9.2.1) (2024-02-29)
 
 
