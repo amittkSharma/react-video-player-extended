@@ -252,7 +252,7 @@ function App() {
               value={poster}
               onChange={(e) => setPoster(e.target.value)}
             >
-              <option value="SAMPLE_POSTER_URL">Loading Video or Video Not Found</option>
+              <option value={SAMPLE_POSTER_URL}>Loading Video or Video Not Found</option>
               <option value="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217">
                 Funny Poster
               </option>
