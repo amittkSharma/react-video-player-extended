@@ -14,3 +14,4 @@ jest.config.js
 webpack.config.js
 webpack.prod.config.js
 src
+rsbuild.*
