@@ -35,6 +35,7 @@ declare global {
 
 interface Props {
   url: string
+  poster?: string
   controls?: ControlSelection[]
   height?: string
   width?: string
@@ -73,6 +74,7 @@ function VideoPlayer(props: Props) {
 
   const {
     url,
+    poster,
     controls = ['Play', 'Time', 'Progress', 'Volume', 'FullScreen'],
     height = '360px',
     width = '640px',
@@ -308,6 +310,7 @@ function VideoPlayer(props: Props) {
         onClick={handlePlayerClick}
         onLoadedMetadata={onLoadedMetadata}
         onEnded={onHandleVideoEnded}
+        poster={poster}
       >
         <source src={url} type="video/mp4" />
       </video>

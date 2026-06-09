@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import VideoPlayer from '../src/index'
 import './styles.css'
 
@@ -16,7 +16,12 @@ function App() {
     },
   ]
 
-  const [url] = useState('https://media.w3.org/2010/05/sintel/trailer.mp4')
+  const SAMPLE_VIDEO_URL = 'https://media.w3.org/2010/05/sintel/trailer.mp4'
+  const SAMPLE_POSTER_URL =
+    'https://placehold.co/640x360/EEE/333?text=Loading Video or Video Not Found'
+
+  const [url, setUrl] = useState(SAMPLE_VIDEO_URL)
+  const [poster, setPoster] = useState(SAMPLE_POSTER_URL)
   const [controls, setControls] = useState(['Play', 'Time', 'Progress', 'Volume', 'FullScreen'])
   const [settings, setSettings] = useState(['Title'])
   const [isPlaying, setIsPlaying] = useState(false)
@@ -202,6 +207,7 @@ function App() {
           height={'auto'}
           width={'640px'}
           timeStart={timeStart}
+          poster={poster}
           onPlay={handlePlay}
           onPause={handlePause}
           onVolume={handleVolume}
@@ -215,6 +221,44 @@ function App() {
           selectedMarker={selectedMarker}
           viewSettings={settings}
         />
+        <div style={{ display: 'flex', flexDirection: 'row', marginTop: 20 }}>
+          <label htmlFor="videoSourceUrl">
+            Video Source
+            <select
+              style={{ width: 300 }}
+              id="videoSourceUrl"
+              name="videoSourceUrl"
+              value={url}
+              onChange={(e) => {
+                setUrl(e.target.value)
+                if (e.target.value === 'undefined') {
+                  setPoster(SAMPLE_POSTER_URL)
+                } else {
+                  setPoster(undefined)
+                }
+              }}
+            >
+              <option value={SAMPLE_VIDEO_URL}>Sample Video</option>
+              <option value="undefined">No Video</option>
+            </select>
+          </label>
+
+          <label htmlFor="posterSourceUrl">
+            Poster Source
+            <select
+              style={{ width: 300 }}
+              id="posterSourceUrl"
+              name="posterSourceUrl"
+              value={poster}
+              onChange={(e) => setPoster(e.target.value)}
+            >
+              <option value={SAMPLE_POSTER_URL}>Loading Video or Video Not Found</option>
+              <option value="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217">
+                Funny Poster
+              </option>
+            </select>
+          </label>
+        </div>
         <div className="controls">
           <em className="control-list">
             Controls:
